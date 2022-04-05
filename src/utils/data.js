@@ -1,7 +1,4 @@
-// Font Awesome
-import Product from './Product';
-
-const products = [
+const data = [
     {
         "id": 1,
         "name": "Notebook Exo Smart P33 Intel N4020",
@@ -324,20 +321,10 @@ const products = [
     }
 ]
 
-const ShowProducts = () => {
-
-    return(
-        <section className="container-fluid py-1 bg-light">
-            <div className="row align-items-stretch text-center">
-                {
-                    products.map(
-                        (product) => 
-                        <Product key={product.id} id={product.id} name={product.name} price={product.price}/>
-                    )
-                }
-            </div>
-        </section>
-    );
+export const getData = () => {
+    return new Promise( (res, rej) => {
+        setTimeout(() => {
+            return res(data);
+        }, 2000);
+    })
 }
-
-export default ShowProducts;
