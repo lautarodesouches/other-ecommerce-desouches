@@ -11,17 +11,17 @@ const NavBar = () => {
             <section className="container" id="menu-top">
                 <nav className="row align-items-center justify-content-center">
                     <div className="col-2 col-md-2">
-                        <a href="#" className="text-decoration-none text-white">
+                        <a href="#nothing" className="text-decoration-none text-white">
                             <img src="https://lautarodesouches.github.io/ecommerce/img/logo.png" alt="Logo" className="logo" />
                         </a>
                     </div>
                     <div className="col-7 col-md-8">
-                        <form action="#" method="get" id="buscadorPrincipal">
+                        <form action="#nothing" method="get" id="buscadorPrincipal">
                             <input className="form-control shadow" type="text" placeholder="Buscar" name="search" aria-label="Search" />
                         </form>
                     </div>
                     <div className="col-3 col-md-2">
-                        <a href="#" className="text-decoration-none text-white position-relative">
+                        <a href="#nothing" className="text-decoration-none text-white position-relative">
                             <CartWidget />
                         </a>
                     </div>
@@ -33,27 +33,27 @@ const NavBar = () => {
                 </div>
                 <nav className="row d-md-flex mt-2 rounded align-items-center justify-content-center d-none" id="contenidoMenu">
                     <div className="col-12 col-md-2">
-                        <a href="#" className="text-decoration-none text-white">
+                        <a href="#nothing" className="text-decoration-none text-white">
                             Inicio
                         </a>
                     </div>
                     <div className="col-12 col-md-2">
-                        <a href="#" className="text-decoration-none text-white">
+                        <a href="#nothing" className="text-decoration-none text-white">
                             Categorias
                         </a>
                     </div>
                     <div className="col-12 col-md-2">
-                        <a href="#" className="text-decoration-none text-white">
+                        <a href="#nothing" className="text-decoration-none text-white">
                             Ofertas
                         </a>
                     </div>
                     <div className="col-12 col-md-2">
-                        <a href="#" className="text-decoration-none text-white">
+                        <a href="#nothing" className="text-decoration-none text-white">
                             Favoritos
                         </a>
                     </div>
                     <div className="col-12 col-md-2">
-                        <a href="#" className="text-decoration-none text-white">
+                        <a href="#nothing" className="text-decoration-none text-white">
                             Productos
                         </a>
                     </div>
