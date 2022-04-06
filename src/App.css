@@ -50,26 +50,30 @@
     font-family: 'Brush Script MT', cursive;
   }
   
-  /* -- Fonts End -- */
+/* -- Fonts End -- */
 
 .logo{
-    width: 100%;
+  width: 100%;
 }
 
-#cantidadItemsEnCarrito{
-    position: absolute;
-    top: -1rem;
-    right: -1rem;
-    background-color: #f44336;
-    border-radius: 50%;
-    text-align: left;
-    padding: 0.1rem 0.5rem !important;
+#itemsInCart{
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  background-color: #f44336;
+  border-radius: 50%;
+  text-align: left;
+  padding: 0.1rem 0.5rem !important;
+}
+
+.item__img{
+  height: 150px;
 }
 
 @media (min-width:768px){
 
-    .logo{
-        width: 25%;
-    }
+  .logo{
+    width: 25%;
+  }
 
 }

@@ -1,11 +1,26 @@
 // Componentes
 import CartWidget from './CartWidget';
+import { useState } from "react";
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
+import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 
 
 const NavBar = () => {
+
+    const [display, setDisplay] = useState('d-none');
+    const [faAngles, setFaAngles] = useState(faAnglesDown)
+
+    function showMenu() {
+        if (display === 'd-block') {
+            setDisplay('d-none');
+            setFaAngles(faAnglesDown);
+        }else{
+            setDisplay('d-block');
+            setFaAngles(faAnglesUp);
+        }
+    }
+
     return(
         <header className="bg-primary py-2 text-white container-fluid text-center">
             <section className="container" id="menu-top">
@@ -28,10 +43,10 @@ const NavBar = () => {
                 </nav>
             </section>
             <section className="mt-3 container" id="menu-bottom">
-                <div className="d-md-none" id="mostrarMenu">
-                    <FontAwesomeIcon icon={faAnglesDown} />
+                <div className="d-md-none" id="showMenu" onClick={showMenu}>
+                    <FontAwesomeIcon icon={faAngles} />
                 </div>
-                <nav className="row d-md-flex mt-2 rounded align-items-center justify-content-center d-none" id="contenidoMenu">
+                <nav className={`row d-md-flex mt-2 rounded align-items-center justify-content-center ${display}`} id="menuContent">
                     <div className="col-12 col-md-2">
                         <a href="#nothing" className="text-decoration-none text-white">
                             Inicio
