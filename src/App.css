@@ -52,6 +52,11 @@
   
 /* -- Fonts End -- */
 
+#app{
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
 .logo{
   width: 100%;
 }

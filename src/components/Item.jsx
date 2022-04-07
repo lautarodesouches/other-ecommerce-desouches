@@ -1,7 +1,4 @@
-function formatNumber(number) {
-    let formatOfNumber = new Intl.NumberFormat('es-AR');
-    return '$' + formatOfNumber.format(number);
-}
+import { formatNumber } from '../utils/functions';
 
 const Item = (props) => {
     return(

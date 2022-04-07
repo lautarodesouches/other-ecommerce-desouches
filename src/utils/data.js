@@ -321,10 +321,16 @@ const data = [
     }
 ]
 
-export const getData = () => {
+let condition = true;
+
+export const getData = (time) => {
     return new Promise( (res, rej) => {
         setTimeout(() => {
-            return res(data);
-        }, 2000);
+            if (condition) {
+                return res(data);
+            } else {
+                return rej('Algo salio mal');
+            }
+        }, time);
     })
 }
