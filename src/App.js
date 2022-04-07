@@ -1,6 +1,5 @@
 // Components
-import NavBar from "./components/NavBar";
-import ItemListContainer from "./components/ItemListContainer";
+import Home from './pages/Home';
 // Coustom Css
 import './App.css';
 // Bootstrap
@@ -10,8 +9,7 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 function App() {
   return (
     <>
-      <NavBar />
-      <ItemListContainer />
+      <Home />
     </>
   );
 }
