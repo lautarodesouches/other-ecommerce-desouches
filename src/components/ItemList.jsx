@@ -1,12 +1,12 @@
 import Item from './Item';
 
-const ItemList = ({ products }) => {
+const ItemList = ({ items }) => {
 
     return(
         <div className="row align-items-stretch text-center">
             {
-                products.map((product) =>
-                    <Item key={product.id} id={product.id} name={product.name} price={product.price} />
+                items.map((item) =>
+                    <Item key={item.id} id={item.id} name={item.name} price={item.price} />
                 )
             }
         </div>

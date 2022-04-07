@@ -4,19 +4,19 @@ import { getData } from "../utils/data";
 
 const ItemListContainer = () => {
 
-    const [products, setProducts] = useState([]);
+    const [items, setItems] = useState([]);
 
     useEffect(() => {
         async function waitGetData() {
             let incomingData = await getData();
-            setProducts(incomingData);
+            setItems(incomingData);
         }
         waitGetData();
     }, [])
 
     return (
         <section className="container-fluid py-3 text-center bg-light">
-            <ItemList products={products} />
+            <ItemList item={items} />
         </section>
     );
 
