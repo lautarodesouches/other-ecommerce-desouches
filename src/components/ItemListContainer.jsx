@@ -16,7 +16,7 @@ const ItemListContainer = () => {
 
     return (
         <section className="container-fluid py-3 text-center bg-light">
-            <ItemList item={items} />
+            <ItemList items={items} />
         </section>
     );
 
