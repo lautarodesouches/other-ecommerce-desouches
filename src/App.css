@@ -56,11 +56,9 @@
   min-height: 100vh;
   background-color: #f8f9fa;
 }
-
 .logo{
   width: 100%;
 }
-
 #itemsInCart{
   position: absolute;
   top: -1rem;
@@ -70,9 +68,11 @@
   text-align: left;
   padding: 0.1rem 0.5rem !important;
 }
-
 .item__img{
   height: 150px;
+}
+.h-50px{
+  height: 50px;
 }
 
 @media (min-width:768px){

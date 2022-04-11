@@ -9,9 +9,9 @@ const data = [
         "freeShipping": false,
         "availableImages": 5,
         "availableColors": [
-            "red",
-            "grey",
-            "dark"
+            ["rojo", "#dc3545", "#fff"],
+            ["gris", "#6c757d", "#fff"],
+            ["negro", "#000", "#fff"]
         ],
         "description": "La notebook Exo Smart P33 Intel N4020 es una solución tanto para trabajar y estudiar como para entretenerte. Al ser portátil, el escritorio dejará de ser tu único espacio de uso para abrirte las puertas a otros ambientes ya sea en tu casa o en la oficina.        "
     },
@@ -25,9 +25,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 3,
         "availableColors": [
-            "red",
-            "white",
-            "dark"
+            ["rojo", "#dc3545", "#fff"],
+            ["blanco", "#fff", "#000"],
+            ["negro", "#000", "#fff"]
         ],
         "description": "La notebook Lenovo IdeaPad 3 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento."
     },
@@ -41,9 +41,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 3,
         "availableColors": [
-            "dark",
-            "blue",
-            "grey"
+            ["negro", "#000", "#fff"],
+            ["azul", "#0d6efd", "#fff"],
+            ["gris", "#6c757d", "#fff"]
         ],
         "description": "La notebook EXO Smart XL4-S3542 es una solución tanto para trabajar y estudiar como para entretenerte. Al ser portátil, el escritorio dejará de ser tu único espacio de uso para abrirte las puertas a otros ambientes ya sea en tu casa o en la oficina."
     },
@@ -57,9 +57,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 4,
         "availableColors": [
-            "dark",
-            "blue",
-            "green"
+            ["negro", "#000", "#fff"],
+            ["azul", "#0d6efd", "#fff"],
+            ["verde", "#198754", "#fff"]
         ],
         "description": "La notebook Banghó Max L4 i1 es una solución tanto para trabajar y estudiar como para entretenerte. Al ser portátil, el escritorio dejará de ser tu único espacio de uso para abrirte las puertas a otros ambientes ya sea en tu casa o en la oficina."
     },
@@ -73,9 +73,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 4,
         "availableColors": [
-            "dark",
-            "blue",
-            "white"
+            ["negro", "#000", "#fff"],
+            ["azul", "#0d6efd", "#fff"],
+            ["blanco", "#fff", "#000"]
         ],
         "description": "La notebook más delgada y ligera de Apple viene con los superpoderes del chip M1. Termina todos tus proyectos mucho más rápido con el CPU de 8 núcleos y disfruta como nunca antes de apps y juegos con gráficos avanzados gracias al GPU de hasta 8 núcleos. Además, el Neural Engine de 16 núcleos se encarga de acelerar todos los procesos de aprendizaje automático. Todo en un diseño silencioso sin ventilador que te ofrece la mayor duración de batería en una MacBook Air: hasta 18 horas. (1) Portátil como siempre, más poderosa que nunca."
     },
@@ -89,9 +89,9 @@ const data = [
         "freeShipping": false,
         "availableImages": 4,
         "availableColors": [
-            "grey",
-            "red",
-            "dark"
+            ["gris", "#6c757d", "#fff"],
+            ["rojo", "#dc3545", "#fff"],
+            ["negro", "#000", "#fff"]
         ],
         "description": "La notebook Noblex N14WCE128 es una solución tanto para trabajar y estudiar como para entretenerte. Al ser portátil, el escritorio dejará de ser tu único espacio de uso para abrirte las puertas a otros ambientes ya sea en tu casa o en la oficina."
     },
@@ -105,9 +105,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 2,
         "availableColors": [
-            "dark",
-            "red",
-            "blue"
+            ["negro", "#000", "#fff"],
+            ["rojo", "#dc3545", "#fff"],
+            ["azul", "#0d6efd", "#fff"]
         ],
         "description": "La notebook Lenovo IdeaPad 3 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento."
     },
@@ -121,9 +121,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 3,
         "availableColors": [
-            "dark",
-            "red",
-            "blue"
+            ["negro", "#000", "#fff"],
+            ["rojo", "#dc3545", "#fff"],
+            ["azul", "#0d6efd", "#fff"]
         ],
         "description": "La notebook Lenovo IdeaPad 3 fue pensada para hacer tu vida más sencilla. Su diseño elegante e innovador y su comodidad para transportarla, la convertirá en tu PC favorita. Cualquier tarea que te propongas, ya sea en casa o en la oficina, la harás con facilidad gracias a su poderoso rendimiento."
     },
@@ -137,9 +137,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 2,
         "availableColors": [
-            "white",
-            "red",
-            "blue"
+            ["blanco", "#fff", "#000"],
+            ["rojo", "#dc3545", "#fff"],
+            ["azul", "#0d6efd", "#fff"]
         ],
         "description": "Rendimiento de nueva generación en la Xbox más pequeña de la historia"
     },
@@ -153,9 +153,9 @@ const data = [
         "freeShipping": false,
         "availableImages": 3,
         "availableColors": [
-            "red",
-            "blue",
-            "dark"
+            ["rojo", "#dc3545", "#fff"],
+            ["azul", "#0d6efd", "#fff"],
+            ["negro", "#000", "#fff"]
         ],
         "description": "Con tu consola Switch tendrás entretenimiento asegurado todos los días. Su tecnología fue creada para poner nuevos retos tanto a jugadores principiantes como expertos."
     },
@@ -169,9 +169,9 @@ const data = [
         "freeShipping": false,
         "availableImages": 4,
         "availableColors": [
-            "white",
-            "dark",
-            "blue"
+            ["blanco", "#fff", "#000"],
+            ["negro", "#000", "#fff"],
+            ["azul", "#0d6efd", "#fff"]
         ],
         "description": "Fotografía profesional en tu bolsillo. Descubrí infinitas posibilidades para tus fotos con las 3 cámaras principales de tu equipo. Poné a prueba tu creatividad y jugá con la iluminación, diferentes planos y efectos para obtener grandes resultados."
     },
@@ -185,9 +185,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 2,
         "availableColors": [
-            "grey",
-            "green",
-            "red"
+            ["gris", "#6c757d", "#fff"],
+            ["verde", "#198754", "#fff"],
+            ["rojo", "#dc3545", "#fff"]
         ],
         "description": "Mayor rendimiento. Su memoria RAM de 4 GB permite que tu smartphone funcione de manera fluida y sin demoras al realizar distintas tareas, jugar o navegar."
     },
@@ -201,9 +201,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 4,
         "availableColors": [
-            "white",
-            "green",
-            "blue"
+            ["blanco", "#fff", "#000"],
+            ["verde", "#198754", "#fff"],
+            ["azul", "#0d6efd", "#fff"]
         ],
         "description": "Con su potente procesador y memoria RAM de 6 GB tu equipo alcanzará un alto rendimiento con gran velocidad de transmisión de contenidos y ejecutará múltiples aplicaciones a la vez sin demoras."
     },
@@ -217,9 +217,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 2,
         "availableColors": [
-            "green",
-            "dark",
-            "blue"
+            ["verde", "#198754", "#fff"],
+            ["negro", "#000", "#fff"],
+            ["azul", "#0d6efd", "#fff"]
         ],
         "description": "¡Desenchufate! Con la súper batería de 5000 mAh tendrás energía por mucho más tiempo para jugar, ver series o trabajar sin necesidad de realizar recargas."
     },
@@ -233,9 +233,9 @@ const data = [
         "freeShipping": false,
         "availableImages": 2,
         "availableColors": [
-            "red",
-            "dark",
-            "grey"
+            ["rojo", "#dc3545", "#fff"],
+            ["negro", "#000", "#fff"],
+            ["gris", "#6c757d", "#fff"]
         ],
         "description": "Su memoria RAM de 2 GB es justo lo que necesitás para utilizar las funciones más importantes como llamar, enviar mensajes, navegar y ejecutar aplicaciones de uso frecuente como redes sociales o multimedia."
     },
@@ -249,9 +249,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 3,
         "availableColors": [
-            "blue",
-            "white",
-            "dark"
+            ["azul", "#0d6efd", "#fff"],
+            ["blanco", "#fff", "#000"],
+            ["negro", "#000", "#fff"]
         ],
         "description": "Máxima seguridad para que solo vos puedas acceder al equipo. Podrás elegir entre el sensor de huella dactilar para habilitar el teléfono en un toque, o el reconocimiento facial que permite un desbloqueo hasta un 30% más rápido."
     },
@@ -265,9 +265,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 3,
         "availableColors": [
-            "white",
-            "dark",
-            "blue"
+            ["blanco", "#fff", "#000"],
+            ["negro", "#000", "#fff"],
+            ["azul", "#0d6efd", "#fff"]
         ],
         "description": "La Mi Band 5 es un salto de evolución respecto a sus predecesoras. Sin perder su versatilidad, la nueva pulsera inteligente de Xiaomi presenta mejoras que la hacen mucho más cómoda y funcional."
     },
@@ -281,9 +281,9 @@ const data = [
         "freeShipping": true,
         "availableImages": 4,
         "availableColors": [
-            "dark",
-            "red",
-            "green"
+            ["negro", "#000", "#fff"],
+            ["rojo", "#dc3545", "#fff"],
+            ["verde", "#198754", "#fff"]
         ],
         "description": "Con el Smart TV UN50AU7000G vas a acceder a las aplicaciones en las que se encuentran tus contenidos favoritos. Además, podés navegar por Internet, interactuar en redes sociales y divertirte con videojuegos."
     },
@@ -297,9 +297,9 @@ const data = [
         "freeShipping": false,
         "availableImages": 3,
         "availableColors": [
-            "blue",
-            "white",
-            "grey"
+            ["azul", "#0d6efd", "#fff"],
+            ["blanco", "#fff", "#000"],
+            ["gris", "#6c757d", "#fff"]
         ],
         "description": "Con el Smart TV UN50AU7000G vas a acceder a las aplicaciones en las que se encuentran tus contenidos favoritos. Además, podés navegar por Internet, interactuar en redes sociales y divertirte con videojuegos."
     },
@@ -313,9 +313,9 @@ const data = [
         "freeShipping": false,
         "availableImages": 3,
         "availableColors": [
-            "dark",
-            "green",
-            "white"
+            ["negro", "#000", "#fff"],
+            ["verde", "#198754", "#fff"],
+            ["blanco", "#fff", "#000"]
         ],
         "description": "Con el Smart TV UN50AU7000G vas a acceder a las aplicaciones en las que se encuentran tus contenidos favoritos. Además, podés navegar por Internet, interactuar en redes sociales y divertirte con videojuegos."
     }

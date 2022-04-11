@@ -1,26 +1,37 @@
+import { useState } from 'react';
 import { formatNumber } from '../utils/functions';
 
 const ItemDetail = ({item}) => {
+
+    const [imgNumber, setImgNumber] = useState(1);
+
+    const changeImg = (number) => {
+        setImgNumber(number);
+    }
+
+    const showImages = () => {
+        const images = [];
+        for (let index = 1; index < item.availableImages + 1; index++) {
+            images.push(
+                <div className={`my-2 p-1 border rounded h-50px ${imgNumber === index && 'border-primary'}`} onClick={() => {changeImg(index)}} key={index}>
+                    <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${index}.png`} alt={item.name} className="mw-100 mh-100" />
+                </div>
+            )
+        }
+        return images;
+    }
+
     return(
-        item.id === undefined
-        ? <div>Cargar</div>
-        :
         <article className="row align-items-center justify-content-center bg-white py-4 rounded">
             <section className="col-12 col-md-4 my-4 my-md-0 text-center">
                 <div className="row align-items-center">
                     <div className="col-2 d-flex flex-column">
-                        <div className="my-2 p-1 border border-primary rounded" style={{height:50}}>
-                            <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-1.png`} alt={item.name} className="w-auto mw-100 h-100" />
-                        </div>
-                        <div className="my-2 p-1 border border-secondary rounded" style={{height:50}}>
-                            <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-2.png`} alt={item.name} className="w-auto mw-100 h-100" />
-                        </div>
-                        <div className="my-2 p-1 border border-secondary rounded" style={{height:50}}>
-                            <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-3.png`} alt={item.name} className="w-auto mw-100 h-100" />
-                        </div>
+                        {
+                            showImages()
+                        }
                     </div>
                     <div className="col-10">
-                        <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-1.png`} alt={item.name} className="w-75" />
+                        <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${imgNumber}.png`} alt={item.name} className="w-75" />
                     </div>
                 </div>
             </section>
@@ -29,9 +40,9 @@ const ItemDetail = ({item}) => {
                 <div className="my-4">
                     <h4 className='h5'>Color:</h4>
                     <div className="mt-3 row text-center justify-content-between align-item-center px-2 px-md-0">
-                        <div className="col-3 p-1 rounded" style={{background:item.availableColors[0]}}>{item.availableColors[0]}</div>
-                        <div className="col-3 p-1 rounded" style={{background:item.availableColors[1]}}>{item.availableColors[1]}</div>
-                        <div className="col-3 p-1 rounded" style={{background:item.availableColors[2]}}>{item.availableColors[2]}</div>
+                        <div className="col-3 p-1 rounded" style={{background:item.availableColors[0][1], color:item.availableColors[0][2]}}>{item.availableColors[0][0]}</div>
+                        <div className="col-3 p-1 rounded" style={{background:item.availableColors[1][1], color:item.availableColors[1][2]}}>{item.availableColors[1][0]}</div>
+                        <div className="col-3 p-1 rounded" style={{background:item.availableColors[2][1], color:item.availableColors[2][2]}}>{item.availableColors[2][0]}</div>
                     </div>
                 </div>
                 <div>

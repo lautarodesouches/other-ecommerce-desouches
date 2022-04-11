@@ -1,6 +1,7 @@
+import ItemDetail from "./ItemDetail";
+import Loading from './Loading';
 import { useEffect, useState } from "react";
 import { getData } from "../utils/data";
-import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
 
@@ -8,15 +9,17 @@ const ItemDetailContainer = () => {
 
     useEffect( () => {
         async function waitGetData() {
-            let incomingData = await getData();
+            let incomingData = await getData(2000);
             setItem(incomingData[0]);
         }
         waitGetData();
     }, [])
 
-    console.log(item);
-
     return(
+        item.id === undefined
+        ?
+        <Loading />
+        :
         <section className="container py-5">
             <ItemDetail item={item} />
         </section>
