@@ -1,7 +1,10 @@
-import ItemList from "./ItemList";
+// Components
+import ItemList from './ItemList';
 import Loading from './Loading';
-import { useState, useEffect } from "react";
-import { getData } from "../utils/data";
+// React
+import { useState, useEffect } from 'react';
+// Utils
+import { getData } from '../utils/data';
 
 const ItemListContainer = () => {
 
@@ -20,7 +23,7 @@ const ItemListContainer = () => {
         ?
         <Loading />
         :
-        <section className="container-fluid py-3 text-center">
+        <section className='container-fluid py-3 text-center'>
             <ItemList items={items} />
         </section>
     );

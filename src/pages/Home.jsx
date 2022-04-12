@@ -1,11 +1,10 @@
-import NavBar from "../components/NavBar";
-import ItemDetailContainer from "../components/ItemDetailContainer";
+// Components
+import ItemListContainer from '../components/ItemListContainer';
 
 const Home = () => {
     return(
         <>
-            <NavBar />
-            <ItemDetailContainer />
+            <ItemListContainer />
         </>
     );
 }

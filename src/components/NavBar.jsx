@@ -1,10 +1,13 @@
 // Componentes
 import CartWidget from './CartWidget';
-import { useState } from "react";
+import { useState } from 'react';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
-
+// Images
+import logo from '../img/logo.png';
+// React Routes DOM
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
@@ -22,55 +25,55 @@ const NavBar = () => {
     }
 
     return(
-        <header className="bg-primary py-2 text-white container-fluid text-center">
-            <section className="container" id="menu-top">
-                <nav className="row align-items-center justify-content-center">
-                    <div className="col-2 col-md-2">
-                        <a href="#nothing" className="text-decoration-none text-white">
-                            <img src="https://lautarodesouches.github.io/ecommerce/img/logo.png" alt="Logo" className="logo" />
-                        </a>
+        <header className='bg-primary py-2 text-white container-fluid text-center'>
+            <section className='container' id='menu-top'>
+                <nav className='row align-items-center justify-content-center'>
+                    <div className='col-2 col-md-2'>
+                        <Link to='/' className='text-decoration-none text-white'>
+                            <img src={logo} alt='Logo' className='logo' />
+                        </Link>
                     </div>
-                    <div className="col-7 col-md-8">
-                        <form action="#nothing" method="get" id="buscadorPrincipal">
-                            <input className="form-control shadow" type="text" placeholder="Buscar" name="search" aria-label="Search" />
+                    <div className='col-7 col-md-8'>
+                        <form action='#search' method='get' id='buscadorPrincipal'>
+                            <input className='form-control shadow' type='text' placeholder='Buscar' name='search' aria-label='Search' />
                         </form>
                     </div>
-                    <div className="col-3 col-md-2">
-                        <a href="#nothing" className="text-decoration-none text-white position-relative">
+                    <div className='col-3 col-md-2'>
+                        <Link to='/' className='text-decoration-none text-white position-relative'>
                             <CartWidget />
-                        </a>
+                        </Link>
                     </div>
                 </nav>
             </section>
-            <section className="mt-3 container" id="menu-bottom">
-                <div className="d-md-none" id="showMenu" onClick={showMenu}>
+            <section className='mt-3 container' id='menu-bottom'>
+                <div className='d-md-none' id='showMenu' onClick={showMenu}>
                     <FontAwesomeIcon icon={faAngles} />
                 </div>
-                <nav className={`row d-md-flex mt-2 rounded align-items-center justify-content-center ${display}`} id="menuContent">
-                    <div className="col-12 col-md-2">
-                        <a href="#nothing" className="text-decoration-none text-white">
+                <nav className={`row d-md-flex mt-2 rounded align-items-center justify-content-center ${display}`} id='menuContent'>
+                    <div className='col-12 col-md-2'>
+                        <Link to='/' className='text-decoration-none text-white'>
                             Inicio
-                        </a>
+                        </Link>
                     </div>
-                    <div className="col-12 col-md-2">
-                        <a href="#nothing" className="text-decoration-none text-white">
+                    <div className='col-12 col-md-2'>
+                        <Link to='/categories/' className='text-decoration-none text-white'>
                             Categorias
-                        </a>
+                        </Link>
                     </div>
-                    <div className="col-12 col-md-2">
-                        <a href="#nothing" className="text-decoration-none text-white">
+                    <div className='col-12 col-md-2'>
+                        <Link to='/offers/' className='text-decoration-none text-white'>
                             Ofertas
-                        </a>
+                        </Link>
                     </div>
-                    <div className="col-12 col-md-2">
-                        <a href="#nothing" className="text-decoration-none text-white">
+                    <div className='col-12 col-md-2'>
+                        <Link to='/favourites/' className='text-decoration-none text-white'>
                             Favoritos
-                        </a>
+                        </Link>
                     </div>
-                    <div className="col-12 col-md-2">
-                        <a href="#nothing" className="text-decoration-none text-white">
+                    <div className='col-12 col-md-2'>
+                        <Link to='/products/' className='text-decoration-none text-white'>
                             Productos
-                        </a>
+                        </Link>
                     </div>
                 </nav>
             </section>

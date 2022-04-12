@@ -1,7 +1,10 @@
-import ItemDetail from "./ItemDetail";
+// Components
+import ItemDetail from './ItemDetail';
 import Loading from './Loading';
-import { useEffect, useState } from "react";
-import { getData } from "../utils/data";
+// React
+import { useEffect, useState } from 'react';
+// Utils
+import { getData } from '../utils/data';
 
 const ItemDetailContainer = () => {
 
@@ -20,7 +23,7 @@ const ItemDetailContainer = () => {
         ?
         <Loading />
         :
-        <section className="container py-5">
+        <section className='container py-5'>
             <ItemDetail item={item} />
         </section>
     );
