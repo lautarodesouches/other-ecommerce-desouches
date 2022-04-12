@@ -1,6 +1,7 @@
 // Componentes
 import CartWidget from './CartWidget';
-import { useState } from 'react';
+// React
+import { useEffect, useState } from 'react';
 // Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
@@ -8,11 +9,14 @@ import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 import logo from '../img/logo.png';
 // React Routes DOM
 import { Link } from 'react-router-dom';
+// Utils
+import { getData } from '../utils/data';
 
 const NavBar = () => {
 
-    const [display, setDisplay] = useState('d-none');
-    const [faAngles, setFaAngles] = useState(faAnglesDown)
+    const [display, setDisplay]         = useState('d-none');
+    const [categories, setCategories]   = useState([]);
+    const [faAngles, setFaAngles]       = useState(faAnglesDown);
 
     function showMenu() {
         if (display === 'd-block') {
@@ -21,6 +25,45 @@ const NavBar = () => {
         }else{
             setDisplay('d-block');
             setFaAngles(faAnglesUp);
+        }
+    }
+
+    const waitGetData = async () => {
+        const initialData = await getData();
+        initialData.sort((a, b) => {
+            if (a.category > b.category) {
+                return 1;
+            }
+            if (a.category < b.category) {
+                return -1;
+            }
+            // a es igual a b
+            return 0;
+        })
+        const saveCategories = [];
+        for (let i = 0; i < initialData.length - 1; i++) {
+            initialData[i].category !== initialData[i+1].category && saveCategories.push(initialData[i].category);
+        }
+        setCategories(saveCategories);
+    }
+
+    useEffect( () => {
+        waitGetData();
+    }, [])
+
+    const ShowCategories = () => {
+        const divsCategories = [];
+        if (categories.length > 0) {
+            categories.forEach(element => {
+                divsCategories.push(
+                    <div className='col-12 col-md-2' key={element}>
+                        <Link to={`/categories/${element}`} className='text-decoration-none text-white'>
+                            {element}
+                        </Link>
+                    </div>
+                )
+            });
+            return divsCategories;
         }
     }
 
@@ -55,26 +98,7 @@ const NavBar = () => {
                             Inicio
                         </Link>
                     </div>
-                    <div className='col-12 col-md-2'>
-                        <Link to='/categories/' className='text-decoration-none text-white'>
-                            Categorias
-                        </Link>
-                    </div>
-                    <div className='col-12 col-md-2'>
-                        <Link to='/offers/' className='text-decoration-none text-white'>
-                            Ofertas
-                        </Link>
-                    </div>
-                    <div className='col-12 col-md-2'>
-                        <Link to='/favourites/' className='text-decoration-none text-white'>
-                            Favoritos
-                        </Link>
-                    </div>
-                    <div className='col-12 col-md-2'>
-                        <Link to='/products/' className='text-decoration-none text-white'>
-                            Productos
-                        </Link>
-                    </div>
+                    <ShowCategories />
                 </nav>
             </section>
         </header>

@@ -16,10 +16,10 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        <Route path='/'                     element={<ItemListContainer />} />
-        <Route path='/category/:idCategory' element={<ItemListContainer />} />
-        <Route path='/item/:idItem'         element={<ItemDetailContainer />} />
-        <Route path='*'                     element={<NotFound />} />
+        <Route path='/'                         element={<ItemListContainer /> } />
+        <Route path='/categories/:categoryName' element={<ItemListContainer /> } />
+        <Route path='/item/:itemId'             element={<ItemDetailContainer /> } />
+        <Route path='*'                         element={<NotFound error='Página no encontrada' />} />
       </Routes>
     </BrowserRouter>
   );
