@@ -33,7 +33,7 @@ const ItemCount = (props) => {
                     <button className='btn btn-success btn-sm'><FontAwesomeIcon icon={faPlus} /></button>
                 </div>
             </div>
-            <button className='btn btn-outline-primary btn-sm mt-4 w-100'>Agregar</button>
+            <button className='btn btn-outline-primary btn-sm mt-4 w-100' onClick={() => props.onAdd(productsAdded)}>Agregar</button>
         </div>
     );
 

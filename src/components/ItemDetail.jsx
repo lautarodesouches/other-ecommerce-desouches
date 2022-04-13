@@ -1,3 +1,5 @@
+// Components
+import ItemCount from "./ItemCount";
 // React
 import { useState } from 'react';
 // Function
@@ -21,6 +23,10 @@ const ItemDetail = ({item}) => {
             )
         }
         return images;
+    }
+
+    const onAdd = (qty) => {
+        alert("You have selected " + qty + " items.");
     }
 
     return(
@@ -64,8 +70,7 @@ const ItemDetail = ({item}) => {
                         <div><h5>{item.amountAvailable}</h5></div>
                     </div>
                     <div className='mt-4'>
-                        <button className='btn btn-lg btn-primary w-75 my-2'>Comprar Ahora</button>
-                        <button className='btn btn-lg btn-outline-primary w-75 my-2'>Agregar al carrito</button>
+                        <ItemCount stock={5} initial={1} onAdd={onAdd} />
                     </div>
                 </div>
             </section>
