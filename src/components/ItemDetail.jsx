@@ -70,7 +70,7 @@ const ItemDetail = ({item}) => {
                         <div><h5>{item.amountAvailable}</h5></div>
                     </div>
                     <div className='mt-4'>
-                        <ItemCount stock={5} initial={1} onAdd={onAdd} />
+                        <ItemCount stock={item.amountAvailable} initial={1} onAdd={onAdd} />
                     </div>
                 </div>
             </section>
