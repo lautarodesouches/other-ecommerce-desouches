@@ -1,7 +1,7 @@
 // Components
 import ItemDetail from './ItemDetail';
 import Loading from './Loading';
-import NotFound from './NotFound';
+import NotFound from '../pages/NotFound';
 // React
 import { useEffect, useState } from 'react';
 // React Router DOM
@@ -29,12 +29,12 @@ const ItemDetailContainer = () => {
             ?
             <Loading />
             :
-            <section className='container py-5'>
+            <section className='container'>
                 <ItemDetail item={item} />
             </section>
         )
         :
-        <NotFound error='Item No Econtrado' />
+        <NotFound message='Item No Econtrado' />
     );
 }
 

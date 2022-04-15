@@ -1,8 +1,14 @@
 // Components
 import NavBar from './components/NavBar';
-import NotFound from './components/NotFound';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import Footer from './components/Footer';
+// Pages
+import Home from './pages/Home';
+import Detail from './pages/Detail';
+import Cart from './pages/Cart';
+import Help from './pages/Help';
+import Contact from './pages/Contact'
+import Search from './pages/Search';
+import NotFound from './pages/NotFound';
 // Coustom Css
 import './App.css';
 // Bootstrap
@@ -15,12 +21,19 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Routes>
-        <Route path='/'                         element={<ItemListContainer /> } />
-        <Route path='/categories/:categoryName' element={<ItemListContainer /> } />
-        <Route path='/item/:itemId'             element={<ItemDetailContainer /> } />
-        <Route path='*'                         element={<NotFound error='Página no encontrada' />} />
-      </Routes>
+      <main className='container-fluid text-center py-5 mh-100vh'>
+        <Routes>
+          <Route path='/'                         element={<Home /> } />
+          <Route path='/categories/:categoryName' element={<Home /> } />
+          <Route path='/item/:itemId'             element={<Detail /> } />
+          <Route path='/cart/'                    element={<Cart /> } />
+          <Route path='/search/:searchQuery'      element={<Search /> } />
+          <Route path='/help/'                    element={<Help /> } />
+          <Route path='/contact/'                 element={<Contact /> } />
+          <Route path='*'                         element={<NotFound message='Página no encontrada' />} />
+        </Routes>
+      </main>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -4,10 +4,12 @@ import ItemCount from './ItemCount';
 import { useState } from 'react';
 // Function
 import { formatNumber } from '../utils/functions';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
 
     const [imgNumber, setImgNumber] = useState(1);
+    const [desiredQuantity, setDesiredQuantity] = useState(0);
 
     const changeImg = (number) => {
         setImgNumber(number);
@@ -26,7 +28,7 @@ const ItemDetail = ({item}) => {
     }
 
     const onAdd = (qty) => {
-        alert('Seleccionaste ' + qty + ' items.');
+        setDesiredQuantity(qty)
     }
 
     return(
@@ -46,28 +48,41 @@ const ItemDetail = ({item}) => {
             <section className='col-12 col-md-4 my-4 my-md-0'>
                 <h1 className='text-center h3'>{item.name}</h1>
                 <div className='my-4'>
-                    <h4 className='h5'>Color:</h4>
+                    <h4 className='h5 text-start'>Color:</h4>
                     <div className='mt-3 row text-center justify-content-between align-item-center px-2 px-md-0'>
-                        <div className={`col-3 p-1 rounded ${item.availableColors[0]}`} >{item.availableColors[0]}</div>
-                        <div className={`col-3 p-1 rounded ${item.availableColors[1]}`} >{item.availableColors[1]}</div>
-                        <div className={`col-3 p-1 rounded ${item.availableColors[2]}`} >{item.availableColors[2]}</div>
+                        <div className={'col-3 p-1 rounded shadow ' + item.availableColors[0]} >{item.availableColors[0]}</div>
+                        <div className={'col-3 p-1 rounded shadow ' + item.availableColors[1]} >{item.availableColors[1]}</div>
+                        <div className={'col-3 p-1 rounded shadow ' + item.availableColors[2]} >{item.availableColors[2]}</div>
                     </div>
                 </div>
-                <div>
+                <div className='text-start'>
                     <h2 className='h5'>Descripcion:</h2>
                     <p>{item.description}</p>
                 </div>
             </section>
             <section className='col-12 col-md-4 my-4 my-md-0 text-center'>
-                <div className='my-3'>
+                <div className='pb-3'>
                     <h2 className='h3'>Precio: {formatNumber(item.price)}</h2>
                 </div>
-                <div className='my-3'>
+                <div className='pb-3'>
                     <h3 className='h5'>Disponible: {item.amountAvailable}</h3>
                 </div>
-                <div className='my-3'>
+                {
+                    desiredQuantity < 1
+                    ?
                     <ItemCount stock={item.amountAvailable} initial={1} onAdd={onAdd} />
-                </div>
+                    :
+                    <>
+                        <div className='pb-3'>
+                            <h3 className='h5'>Cantidad seleccionada: {desiredQuantity}</h3>
+                        </div>
+                        <div className='pb-3'>
+                            <Link to='/cart/'>
+                                <button className='btn btn-primary shadow w-50'>Ir al carrito</button>
+                            </Link>
+                        </div>
+                    </>
+                }
             </section>
         </article>
     );

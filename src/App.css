@@ -39,8 +39,8 @@
   min-height: 100vh;
   background-color: #f8f9fa;
 }
-.logo{
-  width: 100%;
+.h-50px{
+  height: 50px;
 }
 #itemsInCart{
   position: absolute;
@@ -54,8 +54,11 @@
 .item__img{
   height: 150px;
 }
-.h-50px{
-  height: 50px;
+.logo{
+  width: 100%;
+}
+.mh-100vh{
+  min-height: 100vh;
 }
 /* -- Colors -- */
 .rojo{

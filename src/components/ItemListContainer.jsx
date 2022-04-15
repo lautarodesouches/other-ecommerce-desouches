@@ -27,7 +27,7 @@ const ItemListContainer = () => {
         ?
         <Loading />
         :
-        <section className='container-fluid py-3 text-center'>
+        <section className='container-fluid'>
             <ItemList items={items} />
         </section>
     );

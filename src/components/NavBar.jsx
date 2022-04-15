@@ -1,4 +1,5 @@
 // Componentes
+import SearchBar from './SearchBar';
 import CartWidget from './CartWidget';
 // React
 import { useEffect, useState } from 'react';
@@ -47,12 +48,10 @@ const NavBar = () => {
                         </Link>
                     </div>
                     <div className='col-7 col-md-8'>
-                        <form action='#search' method='get' id='buscadorPrincipal'>
-                            <input className='form-control shadow' type='text' placeholder='Buscar' name='search' aria-label='Search' />
-                        </form>
+                        <SearchBar />
                     </div>
                     <div className='col-3 col-md-2'>
-                        <Link to='/' className='text-decoration-none text-white position-relative'>
+                        <Link to='/cart/' className='text-decoration-none text-white position-relative'>
                             <CartWidget />
                         </Link>
                     </div>

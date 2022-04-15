@@ -28,7 +28,7 @@ const ItemCount = ( {initial, stock, onAdd} ) => {
                 <button className='btn btn-outline-success btn-sm'><FontAwesomeIcon icon={faPlus} /></button>
             </div>
             <div className='col-12 mt-3'>
-                <button className='btn btn-primary btn-sm mt-4 w-50' onClick={() => onAdd(productsAdded)}>Agregar</button>
+                <button className='btn btn-outline-primary btn-sm mt-4 w-50' onClick={() => onAdd(productsAdded)}>Agregar</button>
             </div>
         </div>
     );
