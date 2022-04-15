@@ -29,43 +29,13 @@ const NavBar = () => {
     }
 
     const waitGetData = async () => {
-        const initialData = await getData();
-        initialData.sort((a, b) => {
-            if (a.category > b.category) {
-                return 1;
-            }
-            if (a.category < b.category) {
-                return -1;
-            }
-            // a es igual a b
-            return 0;
-        })
-        const saveCategories = [];
-        for (let i = 0; i < initialData.length - 1; i++) {
-            initialData[i].category !== initialData[i+1].category && saveCategories.push(initialData[i].category);
-        }
-        setCategories(saveCategories);
+        const data = await getData();
+        setCategories([...new Set(data.map(item => item.category))]);
     }
 
     useEffect( () => {
         waitGetData();
     }, [])
-
-    const ShowCategories = () => {
-        const divsCategories = [];
-        if (categories.length > 0) {
-            categories.forEach(element => {
-                divsCategories.push(
-                    <div className='col-12 col-md-2' key={element}>
-                        <Link to={`/categories/${element}`} className='text-decoration-none text-white'>
-                            {element}
-                        </Link>
-                    </div>
-                )
-            });
-            return divsCategories;
-        }
-    }
 
     return(
         <header className='bg-primary py-2 text-white container-fluid text-center'>
@@ -93,12 +63,17 @@ const NavBar = () => {
                     <FontAwesomeIcon icon={faAngles} />
                 </div>
                 <nav className={`row d-md-flex mt-2 rounded align-items-center justify-content-center ${display}`} id='menuContent'>
-                    <div className='col-12 col-md-2'>
-                        <Link to='/' className='text-decoration-none text-white'>
-                            Inicio
-                        </Link>
-                    </div>
-                    <ShowCategories />
+                    {
+                        categories.map((category) => {
+                            return(
+                                <div className='col-12 col-md-2' key={category}>
+                                    <Link to={`/categories/${category}`} className='text-decoration-none text-white' onClick={showMenu}>
+                                        {category}
+                                    </Link>
+                                </div>
+                            )
+                        })
+                    }
                 </nav>
             </section>
         </header>

@@ -14,12 +14,12 @@ const ItemListContainer = () => {
     const { categoryName }  = useParams();
 
     useEffect(() => {
-        async function waitGetData() {
+        (async function waitGetData() {
+            setItems([]);
             let incomingData = await getData(2000);
             categoryName && (incomingData = incomingData.filter(item => item.category === categoryName));
             setItems(incomingData);
-        }
-        waitGetData();
+        })();
     }, [categoryName])
 
     return (

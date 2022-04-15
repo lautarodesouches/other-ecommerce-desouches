@@ -1,5 +1,5 @@
 // Components
-import ItemCount from "./ItemCount";
+import ItemCount from './ItemCount';
 // React
 import { useState } from 'react';
 // Function
@@ -14,19 +14,19 @@ const ItemDetail = ({item}) => {
     }
 
     const showImages = () => {
-        const images = [];
+        const divImages = [];
         for (let index = 1; index < item.availableImages + 1; index++) {
-            images.push(
+            divImages.push(
                 <div className={`my-2 p-1 border rounded h-50px ${imgNumber === index && 'border-primary'}`} onClick={() => {changeImg(index)}} key={index}>
                     <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${index}.png`} alt={item.name} className='mw-100 mh-100' />
                 </div>
             )
         }
-        return images;
+        return divImages;
     }
 
     const onAdd = (qty) => {
-        alert("You have selected " + qty + " items.");
+        alert('Seleccionaste ' + qty + ' items.');
     }
 
     return(
@@ -59,19 +59,14 @@ const ItemDetail = ({item}) => {
                 </div>
             </section>
             <section className='col-12 col-md-4 my-4 my-md-0 text-center'>
-                <h2 className='h3'>{formatNumber(item.price)}</h2>
-                <div className='row align-items-center my-4'>
-                    <div className='col-6 d-flex justify-content-center gap-4'>
-                        <div><h5>Cantidad:</h5></div>
-                        <div><h5>1</h5></div>
-                    </div>
-                    <div className='col-6 d-flex justify-content-center gap-4'>
-                        <div><h3 className='h5'>Disponible:</h3></div>
-                        <div><h5>{item.amountAvailable}</h5></div>
-                    </div>
-                    <div className='mt-4'>
-                        <ItemCount stock={item.amountAvailable} initial={1} onAdd={onAdd} />
-                    </div>
+                <div className='my-3'>
+                    <h2 className='h3'>Precio: {formatNumber(item.price)}</h2>
+                </div>
+                <div className='my-3'>
+                    <h3 className='h5'>Disponible: {item.amountAvailable}</h3>
+                </div>
+                <div className='my-3'>
+                    <ItemCount stock={item.amountAvailable} initial={1} onAdd={onAdd} />
                 </div>
             </section>
         </article>

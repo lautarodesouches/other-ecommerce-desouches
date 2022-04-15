@@ -4,36 +4,32 @@ import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 // React
 import { useState } from 'react';
 
-const ItemCount = (props) => {
+const ItemCount = ( {initial, stock, onAdd} ) => {
 
-    const [productsAdded, setproductsAdded] = useState(props.initial);
+    const [productsAdded, setproductsAdded] = useState(initial);
 
     const addProduct = () => {
-        if (productsAdded < props.stock) {
-            setproductsAdded(productsAdded + 1);
-        }
+        productsAdded < stock && setproductsAdded(productsAdded + 1);
     }
 
     const removeProduct = () => {
-        if (productsAdded > 1) {
-            setproductsAdded(productsAdded - 1);
-        }
+        productsAdded > 1 && setproductsAdded(productsAdded - 1);
     }
 
     return(
-        <div>
-            <div className='row pt-3 align-items-center justify-content-center'>
-                <div className='col-3' onClick={removeProduct}>
-                    <button className='btn btn-danger btn-sm'><FontAwesomeIcon icon={faMinus} /></button>
-                </div>
-                <div className='col-2'>
-                    <p className='m-0'>{productsAdded}</p>
-                </div>
-                <div className='col-3' onClick={addProduct}>
-                    <button className='btn btn-success btn-sm'><FontAwesomeIcon icon={faPlus} /></button>
-                </div>
+        <div className='row pt-3 align-items-center justify-content-center'>
+            <div className='col-3' onClick={removeProduct}>
+                <button className='btn btn-outline-danger btn-sm'><FontAwesomeIcon icon={faMinus} /></button>
             </div>
-            <button className='btn btn-outline-primary btn-sm mt-4 w-100' onClick={() => props.onAdd(productsAdded)}>Agregar</button>
+            <div className='col-2'>
+                <h5 className='m-0'>{productsAdded}</h5>
+            </div>
+            <div className='col-3' onClick={addProduct}>
+                <button className='btn btn-outline-success btn-sm'><FontAwesomeIcon icon={faPlus} /></button>
+            </div>
+            <div className='col-12 mt-3'>
+                <button className='btn btn-primary btn-sm mt-4 w-50' onClick={() => onAdd(productsAdded)}>Agregar</button>
+            </div>
         </div>
     );
 

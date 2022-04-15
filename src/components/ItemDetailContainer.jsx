@@ -15,11 +15,10 @@ const ItemDetailContainer = () => {
     const { itemId }      = useParams();
 
     useEffect( () => {
-        async function waitGetData() {
+        (async function waitGetData() {
             let incomingData = await getData(2000);
             setItem(incomingData.filter((el) => el.id === parseInt(itemId))[0]);
-        }
-        waitGetData();
+        }) ();
     }, [itemId])
 
     return(
