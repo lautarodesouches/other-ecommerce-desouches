@@ -1,15 +1,19 @@
 // Components
 import ItemCount from './ItemCount';
 // React
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 // Function
 import { formatNumber } from '../utils/functions';
 import { Link } from 'react-router-dom';
+// Context
+import { CartContext } from '../context/CartContextProdived';
 
 const ItemDetail = ({item}) => {
 
     const [imgNumber, setImgNumber] = useState(1);
     const [desiredQuantity, setDesiredQuantity] = useState(0);
+
+    const cartContext = useContext(CartContext);
 
     const changeImg = (number) => {
         setImgNumber(number);
@@ -28,7 +32,8 @@ const ItemDetail = ({item}) => {
     }
 
     const onAdd = (qty) => {
-        setDesiredQuantity(qty)
+        cartContext.addToCart({item, qty});
+        setDesiredQuantity(qty);
     }
 
     return(
@@ -41,7 +46,7 @@ const ItemDetail = ({item}) => {
                         }
                     </div>
                     <div className='col-10'>
-                        <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${imgNumber}.png`} alt={item.name} className='w-75' />
+                        <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${imgNumber}.png`} alt={item.name} className='item__img' />
                     </div>
                 </div>
             </section>
@@ -78,7 +83,7 @@ const ItemDetail = ({item}) => {
                         </div>
                         <div className='pb-3'>
                             <Link to='/cart/'>
-                                <button className='btn btn-primary shadow w-50'>Ir al carrito</button>
+                                <button className='btn btn-primary shadow w-50'>Terminar mi compra</button>
                             </Link>
                         </div>
                     </>

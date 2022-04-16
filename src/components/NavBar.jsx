@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 // Images
-import logo from '../img/logo.png';
+import logo from '../assets/logo.png';
 // React Routes DOM
 import { Link } from 'react-router-dom';
 // Utils

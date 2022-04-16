@@ -1,5 +1,5 @@
 // Image
-import rainbowCat from '../img/rainbow-cat.gif';
+import rainbowCat from '../assets/rainbow-cat.gif';
 
 const Loading = () => {
     return(
