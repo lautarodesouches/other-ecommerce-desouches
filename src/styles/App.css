@@ -1,7 +1,7 @@
 /* Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap");
 .maven{
-  font-family: 'Maven Pro', sans-serif;
+  font-family: "Maven Pro", sans-serif;
 }
 /* Web Safe Fonts */
 .arial{
@@ -17,10 +17,10 @@
   font-family: Tahoma, sans-serif;
 }
 .trebuchet{
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
 }
 .times{
-  font-family: 'Times New Roman', serif;
+  font-family: "Times New Roman", serif;
 }
 .georgia{
   font-family: Georgia, serif;
@@ -29,10 +29,10 @@
   font-family: Garamond, serif;
 }
 .courier{
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 .brush{
-  font-family: 'Brush Script MT', cursive;
+  font-family: "Brush Script MT", cursive;
 }
 /* -- Coustom CSS -- */
 #app{

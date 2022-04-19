@@ -1,13 +1,13 @@
 // Components
-import ItemDetail from './ItemDetail';
-import Loading from './Loading';
-import NotFound from '../pages/NotFound';
+import ItemDetail from "./ItemDetail";
+import Loading from "./Loading";
+import NotFound from "../pages/NotFound";
 // React
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 // React Router DOM
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 // Utils
-import { getData } from '../utils/data';
+import { getData } from "../utils/data";
 
 const ItemDetailContainer = () => {
 
@@ -29,12 +29,12 @@ const ItemDetailContainer = () => {
             ?
             <Loading />
             :
-            <section className='container'>
+            <section className="container">
                 <ItemDetail item={item} />
             </section>
         )
         :
-        <NotFound message='Item No Econtrado' />
+        <NotFound message="Item No Econtrado" />
     );
 }
 

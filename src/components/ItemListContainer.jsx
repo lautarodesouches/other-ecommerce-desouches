@@ -1,12 +1,12 @@
 // Components
-import ItemList from './ItemList';
-import Loading from './Loading';
+import ItemList from "./ItemList";
+import Loading from "./Loading";
 // React
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 // React Router DOM
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 // Utils
-import { getData } from '../utils/data';
+import { getData } from "../utils/data";
 
 const ItemListContainer = () => {
 
@@ -27,7 +27,7 @@ const ItemListContainer = () => {
         ?
         <Loading />
         :
-        <section className='container-fluid'>
+        <section className="container-fluid">
             <ItemList items={items} />
         </section>
     );
