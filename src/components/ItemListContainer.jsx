@@ -17,7 +17,7 @@ const ItemListContainer = () => {
         (async function waitGetData() {
             setItems([]);
             let incomingData = await getData(2000);
-            categoryName && (incomingData = incomingData.filter(item => item.category === categoryName));
+            categoryName && (incomingData = incomingData.filter(item => item.category.toLowerCase() === categoryName.toLowerCase()));
             setItems(incomingData);
         })();
     }, [categoryName])

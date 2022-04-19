@@ -27,7 +27,7 @@ function App() {
             <Route path="/categories/:categoryName" element={<Home /> } />
             <Route path="/item/:itemId"             element={<Detail /> } />
             <Route path="/cart/"                    element={<Cart /> } />
-            <Route path="/search/:searchQuery"      element={<Search /> } />
+            <Route path="/search/"                  element={<Search /> } />
             <Route path="*"                         element={<NotFound message="Página no encontrada" />} />
           </Routes>
         </main>
