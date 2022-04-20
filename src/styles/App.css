@@ -64,6 +64,9 @@
 .mh-100vh{
   min-height: 100vh;
 }
+.w-50-md-25{
+  width: 50%;
+}
 /* -- Colors -- */
 .rojo{
   background-color: #dc3545;
@@ -92,6 +95,9 @@
 /* -- Desktop -- */
 @media (min-width:768px){
   .logo{
+    width: 25%;
+  }
+  .w-50-md-25{
     width: 25%;
   }
 }
