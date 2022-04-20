@@ -31,7 +31,10 @@ const NavBar = () => {
 
     const waitGetData = async () => {
         const data = await getData();
-        setCategories([...new Set(data.map(item => item.category))]);
+        // Get all categories
+        const arrayCategories = [...new Set(data.map(item => item.category))]
+        // Limit categories to show on the menu
+        setCategories(arrayCategories.filter( (el, id) => id < 6));
     }
 
     useEffect( () => {
