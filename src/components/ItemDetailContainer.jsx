@@ -1,7 +1,7 @@
 // Components
 import ItemDetail from "./ItemDetail";
 import Loading from "./Loading";
-import NotFound from "../pages/NotFound";
+import NotFound from "./NotFound";
 // React
 import { useEffect, useState } from "react";
 // React Router DOM

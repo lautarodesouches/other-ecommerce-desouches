@@ -1,18 +1,16 @@
 // Components
 import ItemList from "./ItemList";
 import Loading from "./Loading";
+import NotFound from "./NotFound";
 // React
 import { useState, useEffect } from "react";
 // Utils
 import { getData } from "../utils/data";
-import NotFound from "../pages/NotFound";
 
 const SearchResults = ( {query} ) => {
 
     const [items, setItems] = useState([]);
     const [searchFound, setSearchFound] = useState(true);
-
-    console.log(query);
 
     useEffect(() => {
         (async function waitGetData() {
@@ -25,9 +23,6 @@ const SearchResults = ( {query} ) => {
         })();
     }, [query])
 
-    let string ='';
-    string.toLowerCase()
-
     return (
         items.length < 1
         ?
@@ -36,6 +31,7 @@ const SearchResults = ( {query} ) => {
             : <NotFound message="No se han encontrado productos con esa búsqueda" />
         :
         <section className="container-fluid">
+            <h2 className="h5 mb-4">Resultados para: {query}</h2>
             <ItemList items={items} />
         </section>
     );

@@ -51,7 +51,7 @@ const Cart = () => {
                                 <h5>{formatNumber(cartContext.cartList.reduce( (acc, el) => acc + (el.item.price * el.qty), 0 ))}</h5>
                             </div>
                         </div>
-                        <button className="btn btn-primary btn-lg w-25">Finalizar</button>
+                        <button className="btn btn-primary btn-lg w-50">Terminar mi compra</button>
                     </section>
                 </>
             }

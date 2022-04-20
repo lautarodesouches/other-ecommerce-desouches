@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Cart from "./pages/Cart";
 import Search from "./pages/Search";
-import NotFound from "./pages/NotFound";
+import PageNotFound from "./pages/PageNotFound";
 // Context
 import CartContextProvider from "./context/CartContextProdived";
 // Coustom Css
@@ -28,7 +28,7 @@ function App() {
             <Route path="/item/:itemId"             element={<Detail /> } />
             <Route path="/cart/"                    element={<Cart /> } />
             <Route path="/search/"                  element={<Search /> } />
-            <Route path="*"                         element={<NotFound message="Página no encontrada" />} />
+            <Route path="*"                         element={<PageNotFound />} />
           </Routes>
         </main>
         <Footer />
