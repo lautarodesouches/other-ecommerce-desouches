@@ -5,8 +5,10 @@ import Loading from "./Loading";
 import { useState, useEffect } from "react";
 // React Router DOM
 import { useParams } from "react-router-dom";
+// Firebase
+import { collection, getDocs } from "firebase/firestore";
 // Utils
-import { getData } from "../utils/data";
+import db from "../utils/firebaseConfig";
 
 const ItemListContainer = () => {
 
@@ -14,13 +16,18 @@ const ItemListContainer = () => {
     const { categoryName }  = useParams();
 
     useEffect(() => {
-        (async function waitGetData() {
-            setItems([]);
-            let incomingData = await getData(2000);
-            categoryName && (incomingData = incomingData.filter(item => item.category.toLowerCase() === categoryName.toLowerCase()));
-            setItems(incomingData);
-        })();
-    }, [categoryName])
+        const fetchFromFireStore = async () => {
+            const querySnapshot = await getDocs(collection(db, "products"));
+            const dataFromFireStore = querySnapshot.docs.map( (doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            return dataFromFireStore;
+        }
+        fetchFromFireStore()
+            .then(result => setItems(result))
+            .catch(error => console.log(error))
+    }, [items, categoryName])
 
     return (
         items.length < 1

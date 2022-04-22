@@ -10,8 +10,10 @@ import { faAnglesDown, faAnglesUp } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/logo.png";
 // React Routes DOM
 import { Link } from "react-router-dom";
+// Firebase
+import { collection, getDocs } from "firebase/firestore";
 // Utils
-import { getData } from "../utils/data";
+import db from "../utils/firebaseConfig";
 
 const NavBar = () => {
 
@@ -29,16 +31,23 @@ const NavBar = () => {
         }
     }
 
-    const waitGetData = async () => {
-        const data = await getData();
-        // Get all categories
-        const arrayCategories = [...new Set(data.map(item => item.category))]
-        // Limit categories to show on the menu
-        setCategories(arrayCategories.filter( (el, id) => id < 6));
-    }
-
     useEffect( () => {
-        waitGetData();
+        const fetchFromFireStore = async () => {
+            const querySnapshot = await getDocs(collection(db, "products"));
+            const dataFromFireStore = querySnapshot.docs.map( (doc) => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            return dataFromFireStore;
+        }
+        fetchFromFireStore()
+            .then(result => {
+                // Get all categories
+                const arrayCategories = [...new Set(result.map(item => item.category))]
+                // Limit categories to show on the menu
+                setCategories(arrayCategories.filter( (el, id) => id < 6));
+            })
+            .catch(error => console.log(error))
     }, [])
 
     return(
