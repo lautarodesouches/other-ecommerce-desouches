@@ -11,7 +11,7 @@ import logo from "../assets/logo.png";
 // React Routes DOM
 import { Link } from "react-router-dom";
 // Firebase
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 // Utils
 import db from "../utils/firebaseConfig";
 
@@ -32,22 +32,20 @@ const NavBar = () => {
     }
 
     useEffect( () => {
-        const fetchFromFireStore = async () => {
-            const querySnapshot = await getDocs(collection(db, "products"));
-            const dataFromFireStore = querySnapshot.docs.map( (doc) => ({
-                id: doc.id,
-                ...doc.data()
-            }));
-            return dataFromFireStore;
-        }
-        fetchFromFireStore()
+        // Auto-executing anonymous function - get data from Firebase
+        (async function () {
+            const querySnapshot = query(collection(db, "products"));
+            return await getDocs(querySnapshot);
+        })()
             .then(result => {
                 // Get all categories
-                const arrayCategories = [...new Set(result.map(item => item.category))]
+                const arrayCategories = [...new Set(result.docs.map( (doc) => doc.data().category ))]
                 // Limit categories to show on the menu
                 setCategories(arrayCategories.filter( (el, id) => id < 6));
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+            })
     }, [])
 
     return(

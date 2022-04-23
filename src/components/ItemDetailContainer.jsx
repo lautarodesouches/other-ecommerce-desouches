@@ -2,39 +2,55 @@
 import ItemDetail from "./ItemDetail";
 import Loading from "./Loading";
 import NotFound from "./NotFound";
+import Error from "./Error";
 // React
 import { useEffect, useState } from "react";
 // React Router DOM
 import { useParams } from "react-router-dom";
+// Firebase
+import { collection, getDocs, query, where } from "firebase/firestore";
 // Utils
-import { getData } from "../utils/data";
+import db from "../utils/firebaseConfig";
 
 const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({});
     const { itemId }      = useParams();
+    const [error, setError] = useState(false);
 
-    useEffect( () => {
-        (async function waitGetData() {
-            let incomingData = await getData(2000);
-            setItem(incomingData.filter((el) => el.id === parseInt(itemId))[0]);
-        }) ();
-    }, [itemId])
+    useEffect(() => {
+        // Auto-executing anonymous function - get data from Firebase
+        (async function () {
+            const querySnapshot = query(collection(db, "products"), where("id", "==", parseInt(itemId) ));
+            return await getDocs(querySnapshot);
+        })()
+            .then(result => {
+                setItem( result.docs.map( (doc) => ({ id: doc.id, ...doc.data() }) )[0] );
+            })
+            .catch(error => {
+                setError(true);
+                console.log(error);
+            })
+    }, [itemId]);
 
     return(
-        item
-        ?
-        (
-            item.id === undefined
+        error
+        ? <Error />
+        :(
+            item
             ?
-            <Loading />
+            (
+                item.id === undefined
+                ?
+                <Loading />
+                :
+                <section className="container">
+                    <ItemDetail item={item} />
+                </section>
+            )
             :
-            <section className="container">
-                <ItemDetail item={item} />
-            </section>
+            <NotFound message="Item No Econtrado" />
         )
-        :
-        <NotFound message="Item No Econtrado" />
     );
 }
 

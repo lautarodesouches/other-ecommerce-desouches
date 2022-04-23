@@ -7,13 +7,13 @@ const Search = () => {
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const query = searchParams.get("q");
+    const q = searchParams.get("q");
 
     // Remove warning
-    false && setSearchParams('');
+    false && setSearchParams("");
 
     return(
-        <SearchResults query={query} />
+        <SearchResults q={q} />
     );
 
 }
