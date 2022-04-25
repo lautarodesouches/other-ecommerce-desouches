@@ -10,11 +10,12 @@ const CartContextProdived = ({children}) => {
     const addToCart = ({item, qty}) => {
         let findItem = cartList.find( (el) => el.item.id === item.id);
 
-        findItem === undefined
-        ?
-        setCartList([...cartList, {item, qty}])
-        :
-        findItem.qty += qty;
+        if (findItem === undefined) {
+            setCartList([...cartList, {itemQty: qty, ...item}])
+        } else {
+            findItem.itemQty += qty;
+            setCartList([...cartList]);
+        }
     }
 
     const removeItem = (itemId) => {
