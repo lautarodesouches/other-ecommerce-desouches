@@ -21,7 +21,7 @@ const CartContainer = ({clear, cartList, removeItem}) => {
             <section>
                 {
                     cartList.map((el) => {
-                        return <CartItem key={el.item.id} item={el.item} qty={el.qty} removeItem={removeItem} />;
+                        return <CartItem key={el.id} item={el} removeItem={removeItem} />;
                     })
                 }
             </section>
@@ -31,7 +31,7 @@ const CartContainer = ({clear, cartList, removeItem}) => {
                         <h5>Total:</h5>
                     </div>
                     <div className="col-12 col-md-3">
-                        <h5>{formatNumber(cartList.reduce( (acc, el) => acc + (el.item.price * el.qty), 0 ))}</h5>
+                        <h5>{formatNumber(cartList.reduce( (acc, el) => acc + (el.price * el.itemQty), 0 ))}</h5>
                     </div>
                 </div>
                 <button className="btn btn-primary btn-lg w-50-md-25">Checkout</button>

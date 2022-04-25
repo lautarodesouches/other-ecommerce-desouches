@@ -32,8 +32,8 @@ const ItemDetail = ({item}) => {
     }
 
     const onAdd = (qty) => {
-        cartContext.addToCart({item, qty});
         setDesiredQuantity(qty);
+        cartContext.addToCart({item, qty});
     }
 
     return(

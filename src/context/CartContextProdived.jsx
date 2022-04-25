@@ -8,13 +8,14 @@ const CartContextProdived = ({children}) => {
     const [cartList, setCartList] = useState([]);
 
     const addToCart = ({item, qty}) => {
-        let findItem = cartList.find( (el) => el.item.id === item.id);
+        let findItem = cartList.find( (el) => el.id === item.id);
 
-        findItem === undefined
-        ?
-        setCartList([...cartList, {item, qty}])
-        :
-        findItem.qty += qty;
+        if (findItem === undefined) {
+            setCartList([...cartList, {itemQty: qty, ...item}])
+        } else {
+            findItem.itemQty += qty;
+            setCartList([...cartList]);
+        }
     }
 
     const removeItem = (itemId) => {
@@ -26,8 +27,13 @@ const CartContextProdived = ({children}) => {
         setCartList([]);
     }
 
+    const countItems = () => {
+        console.log(cartList);
+        return cartList.reduce( (acc, el) => acc + el.itemQty, 0 );
+    }
+
     return(
-        <CartContext.Provider value={{cartList, addToCart, removeItem, clear}}>
+        <CartContext.Provider value={{cartList, addToCart, removeItem, clear, countItems}}>
             {children}
         </CartContext.Provider>
     );

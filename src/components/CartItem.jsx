@@ -4,7 +4,7 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 // Function
 import { formatNumber } from "../utils/functions";
 
-const CartItem = ({item, qty, removeItem}) => {
+const CartItem = ({item, removeItem}) => {
     return(
         <article className="container my-3 position-relative">
             <div className="row align-items-center justify-content-center bg-white py-3 rounded">
@@ -21,11 +21,11 @@ const CartItem = ({item, qty, removeItem}) => {
                 </div>
                 <div className="col-12 col-md-2 py-1 py-md-0">
                     <p className="text-secondary">Cantidad:</p>
-                    <h5>{qty}</h5>
+                    <h5>{item.itemQty}</h5>
                 </div>
                 <div className="col-12 col-md-3 py-1 py-md-0">
                     <p className="text-secondary">Subtotal:</p>
-                    <h5>{formatNumber(item.price * qty)}</h5>
+                    <h5>{formatNumber(item.price * item.itemQty)}</h5>
                 </div>
             </div>
             <span className="position-absolute top-0 end-0 pt-2 pe-3 cursor-pointer">
