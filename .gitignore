@@ -9,7 +9,6 @@
 /coverage
 
 # firebase
-/src/utils/firebaseConfig.js
 
 # production
 /build
