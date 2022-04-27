@@ -9,12 +9,19 @@ import { useState, useEffect } from "react";
 import { collection, getDocs, query } from "firebase/firestore";
 // Utils
 import db from "../utils/firebaseConfig";
+// Funciones
+import { capitalize } from "../utils/functions";
+import { useSearchParams } from "react-router-dom";
 
-const SearchResults = ( {q} ) => {
+const SearchResults = () => {
 
-    const [items, setItems] = useState([]);
+    const [items, setItems]             = useState([]);
     const [searchFound, setSearchFound] = useState(true);
-    const [error, setError] = useState(false);
+    const [error, setError]             = useState(false);
+
+    const [searchParams,] = useSearchParams();
+
+    const q = searchParams.get("q");
 
     useEffect(() => {
         // Auto-executing anonymous function - get data from Firebase
@@ -46,7 +53,7 @@ const SearchResults = ( {q} ) => {
                 : <NotFound message="No se han encontrado productos con esa búsqueda" />
             :
             <section className="container-fluid">
-                <h2 className="h5 mb-4">Resultados para: {q}</h2>
+                <h2 className="h5 mb-4">Resultados para: {capitalize(q)}</h2>
                 <ItemList items={items} />
             </section>
         )
