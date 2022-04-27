@@ -18,8 +18,9 @@ const CartContextProdived = ({children}) => {
         }
     }
 
-    const removeItem = (itemId) => {
-        let filterItem = cartList.filter( (el) => el.id !== itemId);
+    const removeItem = (itemId, itemColor) => {
+        console.log(itemId, itemColor);
+        let filterItem = cartList.filter( (el) => {return el.id !== itemId || el.itemColor !== itemColor});
         setCartList(filterItem);
     }
 

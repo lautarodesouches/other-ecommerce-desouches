@@ -21,7 +21,7 @@ const CartContainer = ({clear, cartList, removeItem}) => {
             <section>
                 {
                     cartList.map((el) => {
-                        return <CartItem key={el.id} item={el} removeItem={removeItem} />;
+                        return <CartItem key={`${el.id}-${el.itemColor}`} item={el} removeItem={removeItem} />;
                     })
                 }
             </section>
