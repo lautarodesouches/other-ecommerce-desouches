@@ -7,11 +7,11 @@ const CartContextProdived = ({children}) => {
 
     const [cartList, setCartList] = useState([]);
 
-    const addToCart = ({item, qty}) => {
-        let findItem = cartList.find( (el) => el.id === item.id);
+    const addToCart = ({item, qty, desiredColor}) => {
+        let findItem = cartList.find( (el) => el.id === item.id && el.itemColor === desiredColor);
 
         if (findItem === undefined) {
-            setCartList([...cartList, {itemQty: qty, ...item}])
+            setCartList([...cartList, {itemColor: desiredColor, itemQty: qty, ...item}])
         } else {
             findItem.itemQty += qty;
             setCartList([...cartList]);
@@ -19,7 +19,7 @@ const CartContextProdived = ({children}) => {
     }
 
     const removeItem = (itemId) => {
-        let filterItem = cartList.filter( (el) => el.item.id !== itemId);
+        let filterItem = cartList.filter( (el) => el.id !== itemId);
         setCartList(filterItem);
     }
 

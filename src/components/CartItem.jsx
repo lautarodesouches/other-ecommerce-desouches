@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 // Function
-import { formatNumber } from "../utils/functions";
+import { formatNumber, capitalize } from "../utils/functions";
 
 const CartItem = ({item, removeItem}) => {
     return(
@@ -17,7 +17,7 @@ const CartItem = ({item, removeItem}) => {
                 </div>
                 <div className="col-12 col-md-2 py-1 py-md-0">
                     <p className="text-secondary">Color:</p>
-                    <h5>Rojo</h5>
+                    <h5>{capitalize(item.itemColor)}</h5>
                 </div>
                 <div className="col-12 col-md-2 py-1 py-md-0">
                     <p className="text-secondary">Cantidad:</p>

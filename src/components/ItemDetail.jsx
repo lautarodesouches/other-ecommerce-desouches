@@ -3,7 +3,8 @@ import ItemCount from "./ItemCount";
 // React
 import { useContext, useState } from "react";
 // Function
-import { formatNumber } from "../utils/functions";
+import { formatNumber, capitalize, notification } from "../utils/functions";
+// React Router
 import { Link } from "react-router-dom";
 // Context
 import { CartContext } from "../context/CartContextProdived";
@@ -12,6 +13,7 @@ const ItemDetail = ({item}) => {
 
     const [imgNumber, setImgNumber] = useState(1);
     const [desiredQuantity, setDesiredQuantity] = useState(0);
+    const [desiredColor, setDesiredColor] = useState(undefined);
 
     const cartContext = useContext(CartContext);
 
@@ -23,7 +25,7 @@ const ItemDetail = ({item}) => {
         const divImages = [];
         for (let index = 1; index < item.availableImages + 1; index++) {
             divImages.push(
-                <div className={`my-2 p-1 border rounded h-50px ${imgNumber === index && "border-primary"}`} onClick={() => {changeImg(index)}} key={index}>
+                <div className={`my-2 p-1 border rounded h-50px transition-1 ${imgNumber === index && "border-primary"}`} onClick={() => {changeImg(index)}} key={index}>
                     <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${index}.png`} alt={item.name} className="mw-100 mh-100" loading="lazy" />
                 </div>
             )
@@ -32,8 +34,12 @@ const ItemDetail = ({item}) => {
     }
 
     const onAdd = (qty) => {
-        setDesiredQuantity(qty);
-        cartContext.addToCart({item, qty});
+        if (desiredColor === undefined) {
+            notification("Por favor, elija un color", "bg-danger", 4000);
+        } else {
+            setDesiredQuantity(qty);
+            cartContext.addToCart({item, qty, desiredColor});
+        }
     }
 
     return(
@@ -53,11 +59,28 @@ const ItemDetail = ({item}) => {
             <section className="col-12 col-md-4 my-4 my-md-0">
                 <h1 className="text-center h3">{item.name}</h1>
                 <div className="my-4">
-                    <h4 className="h5 text-start">Color:</h4>
+                    <h4 className="h5 text-start">
+                        Color:
+                    </h4>
                     <div className="mt-3 row text-center justify-content-between align-item-center px-2 px-md-0">
-                        <div className={"col-3 p-1 rounded shadow " + item.availableColors[0]} >{item.availableColors[0]}</div>
-                        <div className={"col-3 p-1 rounded shadow " + item.availableColors[1]} >{item.availableColors[1]}</div>
-                        <div className={"col-3 p-1 rounded shadow " + item.availableColors[2]} >{item.availableColors[2]}</div>
+                        <div 
+                            className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === item.availableColors[0] && "border-primary"}`}
+                            onClick={ () => {setDesiredColor(item.availableColors[0])}}
+                        >
+                                {capitalize(item.availableColors[0])}
+                        </div>
+                        <div 
+                            className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === item.availableColors[1] && "border-primary"}`}
+                            onClick={ () => {setDesiredColor(item.availableColors[1])}}
+                        >
+                                {capitalize(item.availableColors[1])}
+                        </div>
+                        <div 
+                            className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === item.availableColors[2] && "border-primary"}`}
+                            onClick={ () => {setDesiredColor(item.availableColors[2])}}
+                        >
+                                {capitalize(item.availableColors[2])}
+                        </div>
                     </div>
                 </div>
                 <div className="text-start">
