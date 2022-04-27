@@ -8,7 +8,7 @@ const Item = ( {id, name, price} ) => {
         <article className="col-12 col-md-3 p-4" id={id}>
             <div className="border rounded p-3 bg-white h-100 d-flex flex-column justify-content-between">
                 <div className="item__img">
-                    <img src={`https://lautarodesouches.github.io/ecommerce/img/${id}-1.png`} alt={name} className="mh-100 mw-100"/>
+                    <img src={`https://lautarodesouches.github.io/ecommerce/img/${id}-1.png`} alt={name} className="mh-100 mw-100" loading="lazy" />
                 </div>
                 <div className="py-2">
                     <p>{name}</p>

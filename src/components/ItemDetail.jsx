@@ -24,7 +24,7 @@ const ItemDetail = ({item}) => {
         for (let index = 1; index < item.availableImages + 1; index++) {
             divImages.push(
                 <div className={`my-2 p-1 border rounded h-50px ${imgNumber === index && "border-primary"}`} onClick={() => {changeImg(index)}} key={index}>
-                    <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${index}.png`} alt={item.name} className="mw-100 mh-100" />
+                    <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${index}.png`} alt={item.name} className="mw-100 mh-100" loading="lazy" />
                 </div>
             )
         }
@@ -46,7 +46,7 @@ const ItemDetail = ({item}) => {
                         }
                     </div>
                     <div className="col-10">
-                        <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${imgNumber}.png`} alt={item.name} className="item__img" />
+                        <img src={`https://lautarodesouches.github.io/ecommerce/img/${item.id}-${imgNumber}.png`} alt={item.name} className="item__img" loading="lazy" />
                     </div>
                 </div>
             </section>
