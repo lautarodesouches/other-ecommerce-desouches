@@ -63,24 +63,18 @@ const ItemDetail = ({item}) => {
                         Color:
                     </h4>
                     <div className="mt-3 row text-center justify-content-between align-item-center px-2 px-md-0">
-                        <div 
-                            className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === item.availableColors[0] && "border-primary"}`}
-                            onClick={ () => {setDesiredColor(item.availableColors[0])}}
-                        >
-                                {capitalize(item.availableColors[0])}
-                        </div>
-                        <div 
-                            className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === item.availableColors[1] && "border-primary"}`}
-                            onClick={ () => {setDesiredColor(item.availableColors[1])}}
-                        >
-                                {capitalize(item.availableColors[1])}
-                        </div>
-                        <div 
-                            className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === item.availableColors[2] && "border-primary"}`}
-                            onClick={ () => {setDesiredColor(item.availableColors[2])}}
-                        >
-                                {capitalize(item.availableColors[2])}
-                        </div>
+                        {
+                            item.availableColors.map( color => {
+                                return(
+                                    <div 
+                                        className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === color && "border-primary"}`}
+                                        onClick={ () => {setDesiredColor(color)}}
+                                    >
+                                            {capitalize(color)}
+                                    </div>
+                                )        
+                            })
+                        }
                     </div>
                 </div>
                 <div className="text-start">

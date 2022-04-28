@@ -21,7 +21,7 @@ const SearchResults = () => {
 
     const [searchParams,] = useSearchParams();
 
-    const q = searchParams.get("q");
+    const q = searchParams.get("q").toLowerCase();
 
     useEffect(() => {
         // Auto-executing anonymous function - get data from Firebase
@@ -31,8 +31,7 @@ const SearchResults = () => {
         })()
             .then(result => {
                 let results = result.docs.map( (doc) => ({ id: doc.id, ...doc.data() }) )
-                // This should be in the backend
-                let filter = results.filter(item => item.category.toLowerCase() === q.toLowerCase() || item.name.toLowerCase().includes(q.toLowerCase())  || item.brand.toLowerCase() === q.toLowerCase() );
+                let filter = results.filter(item => item.category.toLowerCase() === q || item.name.toLowerCase().includes(q)  || item.brand.toLowerCase() === q );
                 setSearchFound(filter.length > 0);
                 setItems(filter);
             })
