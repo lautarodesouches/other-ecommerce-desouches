@@ -19,6 +19,7 @@ const ItemDetailContainer = () => {
     const [error, setError] = useState([false]);
 
     useEffect(() => {
+        setError([false]);
         // Auto-executing anonymous function - get data from Firebase
         (async function () {
             const querySnapshot = query(collection(db, "products"), where("id", "==", parseInt(itemId) ));

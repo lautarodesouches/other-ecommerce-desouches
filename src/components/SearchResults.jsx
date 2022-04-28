@@ -24,6 +24,7 @@ const SearchResults = () => {
     const q = searchParams.get("q").toLowerCase();
 
     useEffect(() => {
+        setError([false]);
         // Auto-executing anonymous function - get data from Firebase
         (async function () {
             const querySnapshot = query(collection(db, "products"))

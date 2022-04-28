@@ -18,6 +18,7 @@ const ItemListContainer = () => {
     const [error, setError] = useState([false]);
 
     useEffect(() => {
+        setError([false]);
         // Auto-executing anonymous function - get data from Firebase
         (async function () {
             // If category name is undefined, get all
