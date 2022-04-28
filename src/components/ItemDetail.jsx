@@ -69,6 +69,7 @@ const ItemDetail = ({item}) => {
                                     <div 
                                         className={`col-3 p-1 rounded border transition-1 cursor-pointer ${desiredColor === color && "border-primary"}`}
                                         onClick={ () => {setDesiredColor(color)}}
+                                        key={color}
                                     >
                                             {capitalize(color)}
                                     </div>

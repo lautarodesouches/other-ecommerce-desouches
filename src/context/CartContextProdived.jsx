@@ -5,26 +5,31 @@ export const CartContext = createContext();
 
 const CartContextProdived = ({children}) => {
 
-    const [cartList, setCartList] = useState([]);
+    const [cartList, setCartList] = useState(JSON.parse(localStorage.getItem("cartList")) || []);
+
+    const updateAndSave = (data) => {
+        setCartList(data);
+        localStorage.setItem("cartList", JSON.stringify(data));
+    }
 
     const addToCart = ({item, qty, desiredColor}) => {
         let findItem = cartList.find( (el) => el.id === item.id && el.itemColor === desiredColor);
 
         if (findItem === undefined) {
-            setCartList([...cartList, {itemColor: desiredColor, itemQty: qty, ...item}])
+            updateAndSave([...cartList, {itemColor: desiredColor, itemQty: qty, ...item}]);
         } else {
             findItem.itemQty += qty;
-            setCartList([...cartList]);
+            updateAndSave([...cartList])
         }
     }
 
     const removeItem = (itemId, itemColor) => {
         let filterItem = cartList.filter( (el) => {return el.id !== itemId || el.itemColor !== itemColor});
-        setCartList(filterItem);
+        updateAndSave(filterItem);
     }
 
     const clear = () => {
-        setCartList([]);
+        updateAndSave([]);
     }
 
     const countItems = () => {
