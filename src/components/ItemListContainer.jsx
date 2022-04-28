@@ -15,7 +15,7 @@ const ItemListContainer = () => {
 
     const [items, setItems] = useState([]);
     const { categoryName }  = useParams();
-    const [error, setError] = useState(false);
+    const [error, setError] = useState([false]);
 
     useEffect(() => {
         // Auto-executing anonymous function - get data from Firebase
@@ -32,14 +32,13 @@ const ItemListContainer = () => {
                 setItems( result.docs.map( (doc) => ({ id: doc.id, ...doc.data() }) ) );
             })
             .catch(error => {
-                setError(true);
-                console.log(error);
+                setError([true, error]);
             })
     }, [categoryName]);
 
     return (
-        error
-        ? <Error />
+        error[0]
+        ? <Error message={error} />
         :(
             items.length < 1
             ?

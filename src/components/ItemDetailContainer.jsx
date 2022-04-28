@@ -16,7 +16,7 @@ const ItemDetailContainer = () => {
 
     const [item, setItem] = useState({});
     const { itemId }      = useParams();
-    const [error, setError] = useState(false);
+    const [error, setError] = useState([false]);
 
     useEffect(() => {
         // Auto-executing anonymous function - get data from Firebase
@@ -28,14 +28,13 @@ const ItemDetailContainer = () => {
                 setItem( result.docs.map( (doc) => ({ id: doc.id, ...doc.data() }) )[0] );
             })
             .catch(error => {
-                setError(true);
-                console.log(error);
+                setError([true, error]);
             })
     }, [itemId]);
 
     return(
-        error
-        ? <Error />
+        error[0]
+        ? <Error message={error} />
         :(
             item
             ?

@@ -17,7 +17,7 @@ const SearchResults = () => {
 
     const [items, setItems]             = useState([]);
     const [searchFound, setSearchFound] = useState(true);
-    const [error, setError]             = useState(false);
+    const [error, setError]             = useState([false]);
 
     const [searchParams,] = useSearchParams();
 
@@ -36,14 +36,13 @@ const SearchResults = () => {
                 setItems(filter);
             })
             .catch(error => {
-                setError(true);
-                console.log(error);
+                setError([true, error]);
             })
     }, [q])
 
     return (
-        error
-        ? <Error />
+        error[0]
+        ? <Error message={error} />
         :(
             items.length < 1
             ?

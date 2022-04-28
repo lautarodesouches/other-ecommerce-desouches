@@ -44,9 +44,6 @@ const NavBar = () => {
                 // Limit categories to show on the menu
                 setCategories(arrayCategories.filter( (el, id) => id < 6));
             })
-            .catch(error => {
-                console.log(error);
-            })
     }, [])
 
     return(
