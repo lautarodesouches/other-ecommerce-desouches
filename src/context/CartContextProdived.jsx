@@ -19,7 +19,6 @@ const CartContextProdived = ({children}) => {
     }
 
     const removeItem = (itemId, itemColor) => {
-        console.log(itemId, itemColor);
         let filterItem = cartList.filter( (el) => {return el.id !== itemId || el.itemColor !== itemColor});
         setCartList(filterItem);
     }
@@ -29,7 +28,6 @@ const CartContextProdived = ({children}) => {
     }
 
     const countItems = () => {
-        console.log(cartList);
         return cartList.reduce( (acc, el) => acc + el.itemQty, 0 );
     }
 

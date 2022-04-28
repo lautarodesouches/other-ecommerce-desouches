@@ -1,6 +1,7 @@
 // Componentes
 import SearchBar from "./SearchBar";
 import CartWidget from "./CartWidget";
+import CustomLink from "./CustomLink";
 // React
 import { useEffect, useState } from "react";
 // Font Awesome
@@ -75,11 +76,7 @@ const NavBar = () => {
                     {
                         categories.map((category) => {
                             return(
-                                <div className="col-12 col-md-2" key={category}>
-                                    <Link to={`/categories/${category}`} className="text-decoration-none text-white" onClick={showMenu}>
-                                        {category}
-                                    </Link>
-                                </div>
+                                <CustomLink category={category} showMenu={showMenu} key={category} />
                             )
                         })
                     }
