@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 // Utils
 import db from "../utils/firebaseConfig";
+import { shuffle } from "../utils/functions";
 
 const ItemListContainer = () => {
 
@@ -30,7 +31,7 @@ const ItemListContainer = () => {
             return await getDocs(querySnapshot);
         })()
             .then(result => {
-                setItems( result.docs.map( (doc) => ({ id: doc.id, ...doc.data() }) ) );
+                setItems( shuffle(result.docs.map( (doc) => ({ id: doc.id, ...doc.data() }) )) );
             })
             .catch(error => {
                 setError([true, error]);

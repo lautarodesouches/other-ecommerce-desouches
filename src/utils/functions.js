@@ -17,3 +17,7 @@ export function notification(text, bg, time) {
         body.removeChild(div);
     }, time);
 }
+
+export function shuffle(array) {
+    return array.sort((a, b) => 0.5 - Math.random());
+}
