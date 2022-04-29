@@ -35,7 +35,7 @@ const ItemDetailContainer = () => {
 
     return(
         error[0]
-        ? <Error message={error} />
+        ? <Error message={error[1]} />
         :(
             item
             ?
