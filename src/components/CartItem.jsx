@@ -17,19 +17,19 @@ const CartItem = ({item, removeItem}) => {
                 </div>
                 <div className="col-12 col-md-2 py-1 py-md-0">
                     <p className="text-secondary">Color:</p>
-                    <h5>{capitalize(item.itemColor)}</h5>
+                    <h5>{capitalize(item.color)}</h5>
                 </div>
                 <div className="col-12 col-md-2 py-1 py-md-0">
                     <p className="text-secondary">Cantidad:</p>
-                    <h5>{item.itemQty}</h5>
+                    <h5>{item.qty}</h5>
                 </div>
                 <div className="col-12 col-md-3 py-1 py-md-0">
                     <p className="text-secondary">Subtotal:</p>
-                    <h5>{formatNumber(item.price * item.itemQty)}</h5>
+                    <h5>{formatNumber(item.price * item.qty)}</h5>
                 </div>
             </div>
             <span className="position-absolute top-0 end-0 pt-2 pe-3 cursor-pointer">
-                <FontAwesomeIcon icon={faCircleXmark} size="lg" className="text-danger" onClick={() => {removeItem(item.id, item.itemColor)}} />
+                <FontAwesomeIcon icon={faCircleXmark} size="lg" className="text-danger" onClick={() => {removeItem(item.id, item.color)}} />
             </span>
         </article>
     );

@@ -8,7 +8,7 @@ import CartContainer from "../components/CartContainer";
 
 const Cart = () => {
 
-    const {cartList, clear, removeItem} = useContext(CartContext);
+    const {cartList, clear, removeItem, cartTotal} = useContext(CartContext);
 
     return(
         <>
@@ -17,7 +17,7 @@ const Cart = () => {
                 ?
                 <NotFound message="El carrito se encuentra vacio" />
                 :
-                <CartContainer cartList={cartList} clear={clear} removeItem={removeItem} />
+                <CartContainer cartList={cartList} clear={clear} removeItem={removeItem} cartTotal={cartTotal} />
             }
         </>
     );

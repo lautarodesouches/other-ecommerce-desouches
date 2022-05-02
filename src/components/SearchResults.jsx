@@ -11,6 +11,7 @@ import { collection, getDocs, query } from "firebase/firestore";
 import db from "../utils/firebaseConfig";
 // Funciones
 import { capitalize } from "../utils/functions";
+// React Router DOM
 import { useSearchParams } from "react-router-dom";
 
 const SearchResults = () => {

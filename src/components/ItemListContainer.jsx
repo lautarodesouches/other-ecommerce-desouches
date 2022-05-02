@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from "firebase/firestore";
 // Utils
 import db from "../utils/firebaseConfig";
+// Funciones
 import { shuffle } from "../utils/functions";
 
 const ItemListContainer = () => {

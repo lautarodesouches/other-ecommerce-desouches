@@ -9,6 +9,7 @@ import { CartContext } from "../context/CartContextProdived";
 const CartWidget = () => {
 
     const cartContext = useContext(CartContext);
+    
     return (
         <>
             <FontAwesomeIcon icon={faCartShopping} size="lg" />
