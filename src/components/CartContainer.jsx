@@ -3,11 +3,11 @@ import CartItem from "./CartItem";
 // React Router DOM
 import { Link } from "react-router-dom";
 // Function
-import { formatNumber } from "../utils/functions";
+import { formatNumber } from "utils/functions";
 // Utils
-import db from "../utils/firebaseConfig";
+import db from "utils/firebaseConfig";
 // Firebase
-import { doc, getFirestore, increment, serverTimestamp, updateDoc, collection, setDoc, query, where, getDocs } from "firebase/firestore";
+import { doc, increment, serverTimestamp, updateDoc, collection, setDoc, query, where, getDocs } from "firebase/firestore";
 
 const CartContainer = ({clear, cartList, removeItem, cartTotal}) => {
 
@@ -43,6 +43,13 @@ const CartContainer = ({clear, cartList, removeItem, cartTotal}) => {
             const itemRef = doc(db, "products", docId);
             await updateDoc(itemRef, { amountAvailable: increment(item.qty) });
         });
+
+        // Create new order in firebase
+        (async () => {
+            const newOrderRef = doc(collection(db, "orders"));
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+        })()
 
     }
 

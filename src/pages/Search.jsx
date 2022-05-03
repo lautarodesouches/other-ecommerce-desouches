@@ -1,5 +1,5 @@
 // Components
-import SearchResults from "../components/SearchResults";
+import SearchResults from "components/SearchResults";
 
 const Search = () => {
     return(

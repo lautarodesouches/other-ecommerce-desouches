@@ -1,5 +1,5 @@
 // Components
-import NotFound from "../components/NotFound";
+import NotFound from "components/NotFound";
 
 const PageNotFound = () => {
     return(

@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 // Firebase
 import { collection, getDocs, query, where } from "firebase/firestore";
 // Utils
-import db from "../utils/firebaseConfig";
+import db from "utils/firebaseConfig";
 
 const ItemDetailContainer = () => {
 

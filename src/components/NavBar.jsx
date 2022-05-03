@@ -8,13 +8,13 @@ import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown, faAnglesUp } from "@fortawesome/free-solid-svg-icons";
 // Images
-import logo from "../assets/logo.png";
+import logo from "assets/logo.png";
 // React Routes DOM
 import { Link } from "react-router-dom";
 // Firebase
 import { collection, getDocs, query } from "firebase/firestore";
 // Utils
-import db from "../utils/firebaseConfig";
+import db from "utils/firebaseConfig";
 
 const NavBar = () => {
 

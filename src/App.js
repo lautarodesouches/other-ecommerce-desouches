@@ -1,16 +1,16 @@
 // Components
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
+import NavBar from "components/NavBar";
+import Footer from "components/Footer";
 // Pages
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
-import Cart from "./pages/Cart";
-import Search from "./pages/Search";
-import PageNotFound from "./pages/PageNotFound";
+import Home from "pages/Home";
+import Detail from "pages/Detail";
+import Cart from "pages/Cart";
+import Search from "pages/Search";
+import PageNotFound from "pages/PageNotFound";
 // Context
-import CartContextProvider from "./context/CartContextProdived";
+import CartContextProvider from "context/CartContextProdived";
 // Coustom Css
-import "./styles/App.css";
+import "styles/App.css";
 // Bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
 // React Router DOM

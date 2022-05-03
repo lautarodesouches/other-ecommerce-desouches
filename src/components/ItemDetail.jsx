@@ -3,11 +3,11 @@ import ItemCount from "./ItemCount";
 // React
 import { useContext, useState } from "react";
 // Function
-import { formatNumber, capitalize, notification } from "../utils/functions";
+import { formatNumber, capitalize, notification } from "utils/functions";
 // React Router
 import { Link } from "react-router-dom";
 // Context
-import { CartContext } from "../context/CartContextProdived";
+import { CartContext } from "context/CartContextProdived";
 
 const ItemDetail = ({item}) => {
 

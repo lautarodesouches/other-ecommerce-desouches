@@ -1,10 +1,10 @@
 // Componentes
-import NotFound from "../components/NotFound";
+import NotFound from "components/NotFound";
 // React
 import { useContext } from "react";
 // Context
-import { CartContext } from "../context/CartContextProdived";
-import CartContainer from "../components/CartContainer";
+import { CartContext } from "context/CartContextProdived";
+import CartContainer from "components/CartContainer";
 
 const Cart = () => {
 

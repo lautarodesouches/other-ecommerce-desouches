@@ -1,7 +1,7 @@
 // React Routes DOM
 import { Link } from "react-router-dom";
 // Function
-import { formatNumber } from "../utils/functions";
+import { formatNumber } from "utils/functions";
 
 const Item = ( {id, name, price} ) => {
     return(

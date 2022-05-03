@@ -2,7 +2,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 // Function
-import { formatNumber, capitalize } from "../utils/functions";
+import { formatNumber, capitalize } from "utils/functions";
 
 const CartItem = ({item, removeItem}) => {
     return(

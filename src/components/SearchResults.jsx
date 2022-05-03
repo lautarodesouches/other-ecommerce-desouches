@@ -8,9 +8,9 @@ import { useState, useEffect } from "react";
 // Firebase
 import { collection, getDocs, query } from "firebase/firestore";
 // Utils
-import db from "../utils/firebaseConfig";
+import db from "utils/firebaseConfig";
 // Funciones
-import { capitalize } from "../utils/functions";
+import { capitalize } from "utils/functions";
 // React Router DOM
 import { useSearchParams } from "react-router-dom";
 
