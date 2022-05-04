@@ -5,6 +5,7 @@ import Footer from "components/Footer";
 import Home from "pages/Home";
 import Detail from "pages/Detail";
 import Cart from "pages/Cart";
+import Checkout from "pages/Checkout";
 import Search from "pages/Search";
 import PageNotFound from "pages/PageNotFound";
 // Context
@@ -27,6 +28,7 @@ function App() {
             <Route path="/categories/:categoryName" element={<Home /> } />
             <Route path="/item/:itemId"             element={<Detail /> } />
             <Route path="/cart/"                    element={<Cart /> } />
+            <Route path="/checkout/"                element={<Checkout /> } />
             <Route path="/search/"                  element={<Search /> } />
             <Route path="*"                         element={<PageNotFound />} />
           </Routes>

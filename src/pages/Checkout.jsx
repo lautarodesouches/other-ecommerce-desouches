@@ -1,15 +1,19 @@
 // Components
-import Error from "./Error";
+import CheckoutForm from "components/CheckoutForm";
+import Thankyou from "components/Thankyou";
+import Error from "components/Error";
 // Utils
 import db from "utils/firebaseConfig";
 // Firebase
 import { doc, increment, serverTimestamp, updateDoc, collection, setDoc, query, where, getDocs } from "firebase/firestore";
 // React
-import { useState } from "react";
-// React Router DOM
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+// Context
+import { CartContext } from "context/CartContextProdived";
 
-const CartForm = ({cartList, cartTotal, clear}) => {
+const Checkout = () => {
+    
+    const {cartList, clear, cartTotal} = useContext(CartContext);
 
     const [formInomplete, setFormIncomplete] = useState(true);
     const [formOk, setFormOk] = useState(false);
@@ -82,32 +86,12 @@ const CartForm = ({cartList, cartTotal, clear}) => {
             {   
                 formInomplete
                 ?
-                <form className="col-12 col-md-4 bg-white rounded p-4" onSubmit={(e) => {createOrder(e)}}>
-                    <div className="mb-3 text-start">
-                        <label htmlFor="name" className="form-label">Nombre</label>
-                        <input type="text" className="form-control" id="name" aria-describedby="name" />
-                    </div>
-                    <div className="mb-3 text-start">
-                        <label htmlFor="email" className="form-label">Email</label>
-                        <input type="email" className="form-control" id="email" aria-describedby="email" />
-                    </div>
-                    <div className="mb-3 text-start">
-                        <label htmlFor="phone" className="form-label">Teléfono</label>
-                        <input type="tel" className="form-control" id="phone" aria-describedby="phone" />
-                    </div>
-                    <button type="submit" className="btn btn-primary mt-4 w-25">Submit</button>
-                </form>
+                <CheckoutForm createOrder={createOrder} />
                 :
                 (
                     formOk
                     ?
-                    <>
-                        <h2>Gracias por tu compra {buyerName}</h2>
-                        <h5 className="mt-3"> Tu ID de compra es:</h5>
-                        <h5 className="b">{orderId}</h5>
-                        <p className="my-5">Podes usar tu id de compra para seguir el estado de la misma</p>
-                        <Link to="/">Volver al inicio</Link>
-                    </>
+                    <Thankyou buyerName={buyerName} orderId={orderId} />
                     :
                     <Error message={error} />
                 )
@@ -116,4 +100,4 @@ const CartForm = ({cartList, cartTotal, clear}) => {
     );
 }
 
-export default CartForm;
+export default Checkout;
