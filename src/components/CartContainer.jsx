@@ -17,7 +17,7 @@ const CartContainer = ({clear, cartList, removeItem, cartTotal}) => {
             {
                 showForm
                 ?
-                <CartForm cartList={cartList} cartTotal={cartTotal} />
+                <CartForm cartList={cartList} cartTotal={cartTotal} clear={clear} />
                 :
                 <>
                     <section className="row pb-5">

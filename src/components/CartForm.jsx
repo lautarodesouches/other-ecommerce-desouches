@@ -6,13 +6,16 @@ import db from "utils/firebaseConfig";
 import { doc, increment, serverTimestamp, updateDoc, collection, setDoc, query, where, getDocs } from "firebase/firestore";
 // React
 import { useState } from "react";
+// React Router DOM
+import { Link } from "react-router-dom";
 
-const CartForm = ({cartList, cartTotal}) => {
+const CartForm = ({cartList, cartTotal, clear}) => {
 
     const [formInomplete, setFormIncomplete] = useState(true);
     const [formOk, setFormOk] = useState(false);
     const [buyerName, setBuyerName] = useState("");
     const [orderId, setOrderId] = useState("");
+    const [error, setError] = useState("");
 
     const createOrder = (e) => {
 
@@ -60,8 +63,17 @@ const CartForm = ({cartList, cartTotal}) => {
             await setDoc(newOrderRef, order);
             return newOrderRef;
         })()
-        .then( result => {setFormOk(true); setFormIncomplete(false); setOrderId(result.id);})
-        .catch( error => setFormIncomplete(false));
+        .then( result => {
+            setFormOk(true);
+            setFormIncomplete(false);
+            setOrderId(result.id);
+            clear();
+        })
+        .catch( error => {
+            setFormIncomplete(false);
+            setError(error);
+            console.log(error);
+        });
 
     }
 
@@ -93,10 +105,11 @@ const CartForm = ({cartList, cartTotal}) => {
                         <h2>Gracias por tu compra {buyerName}</h2>
                         <h5 className="mt-3"> Tu ID de compra es:</h5>
                         <h5 className="b">{orderId}</h5>
-                        <p className="mt-5">Podes usar tu id de compra para seguir el estado de la misma</p>
+                        <p className="my-5">Podes usar tu id de compra para seguir el estado de la misma</p>
+                        <Link to="/">Volver al inicio</Link>
                     </>
                     :
-                    <Error message="La base de datos a devuelto un error" />
+                    <Error message={error} />
                 )
             }
         </section>
