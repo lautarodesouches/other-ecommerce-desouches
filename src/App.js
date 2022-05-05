@@ -7,6 +7,7 @@ import Detail from "pages/Detail";
 import Cart from "pages/Cart";
 import Checkout from "pages/Checkout";
 import Search from "pages/Search";
+import Orders from "pages/Orders";
 import PageNotFound from "pages/PageNotFound";
 // Context
 import CartContextProvider from "context/CartContextProdived";
@@ -30,6 +31,7 @@ function App() {
             <Route path="/cart/"                    element={<Cart /> } />
             <Route path="/checkout/"                element={<Checkout /> } />
             <Route path="/search/"                  element={<Search /> } />
+            <Route path="/orders/"                  element={<Orders /> } />
             <Route path="*"                         element={<PageNotFound />} />
           </Routes>
         </main>

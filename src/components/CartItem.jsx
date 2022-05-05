@@ -28,9 +28,15 @@ const CartItem = ({item, removeItem}) => {
                     <h5>{formatNumber(item.price * item.qty)}</h5>
                 </div>
             </div>
-            <span className="position-absolute top-0 end-0 pt-2 pe-3 cursor-pointer">
-                <FontAwesomeIcon icon={faCircleXmark} size="lg" className="text-danger" onClick={() => {removeItem(item.id, item.color)}} />
-            </span>
+            {
+                removeItem
+                ?
+                <span className="position-absolute top-0 end-0 pt-2 pe-3 cursor-pointer">
+                    <FontAwesomeIcon icon={faCircleXmark} size="lg" className="text-danger" onClick={() => {removeItem(item.id, item.color)}} />
+                </span>
+                :
+                null
+            }
         </article>
     );
 }
