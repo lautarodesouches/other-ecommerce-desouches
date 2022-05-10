@@ -11,7 +11,7 @@ const Cart = () => {
     const {cartList, clear, removeItem, cartTotal} = useContext(CartContext);
 
     return(
-        <>
+        <section className="fadeIn">
             {
                 cartList.length < 1
                 ?
@@ -19,7 +19,7 @@ const Cart = () => {
                 :
                 <CartContainer cartList={cartList} clear={clear} removeItem={removeItem} cartTotal={cartTotal} />
             }
-        </>
+        </section>
     );
 }
 

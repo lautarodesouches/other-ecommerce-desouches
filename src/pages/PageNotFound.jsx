@@ -3,7 +3,9 @@ import NotFound from "components/NotFound";
 
 const PageNotFound = () => {
     return(
-        <NotFound message="Page not found" />
+        <section className="fadeIn">
+            <NotFound message="Page not found" />
+        </section>
     );
 }
 

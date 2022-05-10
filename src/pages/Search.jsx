@@ -3,7 +3,9 @@ import SearchResults from "components/SearchResults";
 
 const Search = () => {
     return(
-        <SearchResults />
+        <section className="fadeIn">
+            <SearchResults />
+        </section>
     );
 }
 

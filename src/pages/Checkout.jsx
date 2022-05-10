@@ -82,7 +82,7 @@ const Checkout = () => {
     }
 
     return(
-        <section className="row justify-content-center">
+        <section className="row justify-content-center fadeIn">
             {   
                 formInomplete
                 ?

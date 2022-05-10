@@ -3,9 +3,9 @@ import ItemListContainer from "components/ItemDetailContainer";
 
 const Detail = () => {
     return(
-        <>
+        <section className="fadeIn">
             <ItemListContainer />
-        </>
+        </section>
     );
 }
 
